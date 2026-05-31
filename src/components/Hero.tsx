@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const floatingOrbs = [
-  { size: 300, x: "10%", y: "20%", delay: 0, color: "rgba(124,58,237,0.15)" },
-  { size: 200, x: "75%", y: "10%", delay: 1, color: "rgba(192,132,252,0.12)" },
-  { size: 250, x: "60%", y: "60%", delay: 2, color: "rgba(232,121,249,0.1)" },
-  { size: 150, x: "20%", y: "70%", delay: 0.5, color: "rgba(139,92,246,0.12)" },
+  { size: 200, x: "5%",  y: "20%", delay: 0,   color: "rgba(124,58,237,0.15)" },
+  { size: 160, x: "70%", y: "10%", delay: 1,   color: "rgba(192,132,252,0.12)" },
+  { size: 180, x: "60%", y: "60%", delay: 2,   color: "rgba(232,121,249,0.1)" },
+  { size: 120, x: "15%", y: "65%", delay: 0.5, color: "rgba(139,92,246,0.12)" },
 ];
 
 export default function Hero() {
@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden isolate"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden isolate"
     >
       {/* Floating orbs */}
       {floatingOrbs.map((orb, i) => (
@@ -34,7 +34,7 @@ export default function Hero() {
             background: `radial-gradient(circle, ${orb.color}, transparent 70%)`,
             filter: "blur(40px)",
           }}
-          animate={{ y: [0, -30, 0], x: [0, 15, 0], scale: [1, 1.1, 1] }}
+          animate={{ y: [0, -20, 0], x: [0, 10, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 6 + i, repeat: Infinity, delay: orb.delay, ease: "easeInOut" }}
         />
       ))}
@@ -50,7 +50,8 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-26">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 text-center pt-24 pb-16">
+
         {/* Profile image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -58,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-6 flex justify-center"
         >
-          <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-violet-500/50 glow-purple">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-violet-500/50 glow-purple shrink-0">
             <Image
               src="https://code-with-abdul.vercel.app/_next/image?url=%2Fprofile.jpeg&w=384&q=75"
               alt="Abdul Baseer"
@@ -81,21 +82,23 @@ export default function Hero() {
           </span>
         </motion.div>
 
+        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight"
         >
           Hi, I&apos;m{" "}
           <span className="gradient-text glow-text">Abdul Baseer</span>
         </motion.h1>
 
+        {/* Roles */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg md:text-xl text-purple-200/60 mb-4 font-light flex flex-wrap justify-center gap-x-3 gap-y-1"
+          className="text-sm sm:text-base md:text-xl text-purple-200/60 mb-4 font-light flex flex-wrap justify-center gap-x-2 gap-y-1"
         >
           <span>Front End Developer</span>
           <span className="text-violet-500">·</span>
@@ -104,27 +107,29 @@ export default function Hero() {
           <span>Wifi Pentester</span>
         </motion.div>
 
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-purple-200/50 max-w-xl mx-auto mb-10 leading-relaxed"
+          className="text-purple-200/50 max-w-lg mx-auto mb-10 leading-relaxed text-sm sm:text-base"
         >
           Building digital experiences with passion and precision. Crafting modern,
           responsive web apps and intuitive UI designs.
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+          className="flex flex-col sm:flex-row gap-3 justify-center mb-8"
         >
           <motion.button
             onClick={() => handleScroll("#projects")}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold px-8 py-3.5 rounded-full border-0 glow-purple hover:opacity-90 transition-opacity cursor-pointer text-base"
+            className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold px-8 py-3 rounded-full border-0 glow-purple hover:opacity-90 transition-opacity cursor-pointer text-sm sm:text-base w-full sm:w-auto"
           >
             View Projects
           </motion.button>
@@ -132,7 +137,7 @@ export default function Hero() {
             onClick={() => handleScroll("#services")}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="glass border border-violet-500/40 text-violet-300 hover:bg-violet-900/30 rounded-full px-8 py-3.5 transition-all cursor-pointer text-base font-medium"
+            className="glass border border-violet-500/40 text-violet-300 hover:bg-violet-900/30 rounded-full px-8 py-3 transition-all cursor-pointer text-sm sm:text-base font-medium w-full sm:w-auto"
           >
             Explore Services
           </motion.button>
@@ -186,7 +191,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="mt-12 flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -197,6 +202,7 @@ export default function Hero() {
             <div className="w-1 h-2 rounded-full bg-violet-400" />
           </motion.div>
         </motion.div>
+
       </div>
     </section>
   );

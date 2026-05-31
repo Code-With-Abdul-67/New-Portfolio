@@ -37,18 +37,18 @@ export default function Navbar() {
         scrolled ? "glass-strong shadow-lg shadow-purple-900/20" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.button
           onClick={() => handleNavClick("#home")}
-          className="text-xl font-bold gradient-text glow-text cursor-pointer bg-transparent border-0"
+          className="text-lg sm:text-xl font-bold gradient-text glow-text cursor-pointer bg-transparent border-0 shrink-0"
           whileHover={{ scale: 1.05 }}
         >
           &lt;Abdul /&gt;
         </motion.button>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Links — show at lg */}
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <motion.button
               key={link.label}
@@ -64,15 +64,15 @@ export default function Navbar() {
             onClick={() => handleNavClick("#contact")}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-medium px-5 py-2 rounded-full border-0 hover:opacity-90 transition-opacity cursor-pointer"
+            className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-medium px-5 py-2 rounded-full border-0 hover:opacity-90 transition-opacity cursor-pointer shrink-0"
           >
             Hire Me
           </motion.button>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile Hamburger — show below lg */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-0 cursor-pointer"
+          className="lg:hidden flex flex-col gap-1.5 p-2 bg-transparent border-0 cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -98,7 +98,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong border-t border-purple-500/20 overflow-hidden"
+            className="lg:hidden glass-strong border-t border-purple-500/20 overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (

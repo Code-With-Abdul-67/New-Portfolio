@@ -43,7 +43,7 @@ export default function Contact() {
     "w-full bg-violet-900/20 border border-violet-500/25 rounded-xl px-4 py-3 text-purple-100 placeholder:text-purple-400/40 text-sm focus:outline-none focus:border-violet-400 transition-colors";
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
