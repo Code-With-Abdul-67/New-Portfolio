@@ -2,123 +2,180 @@
 
 import { motion } from "framer-motion";
 
+const TICKER_ITEMS = [
+  "NEXT.JS", "TAILWINDCSS", "POSTGRESQL", "FIGMA", "REACT",
+  "HTML5", "CSS3", "PYTHON", "OSINT", "GIT", "TYPESCRIPT",
+  "FRAMER MOTION", "BOOTSTRAP", "LINUX", "VS CODE", "NEXTAUTH",
+];
+
 const services = [
-  {
-    icon: "🌐",
-    title: "Web Development",
-    description:
-      "Building fast, responsive, and SEO-friendly websites using modern technologies like Next.js, React, and Tailwind CSS. From landing pages to complex web apps.",
-    features: ["Responsive Design", "Next.js & React", "API Integration", "Performance Setup"],
-    gradient: "from-violet-600/20 to-fuchsia-600/20",
-  },
-  {
-    icon: "✏️",
-    title: "Logo Designing",
-    description:
-      "Crafting unique and memorable visual identities that capture your brand's essence. Professional logos that work perfectly across all digital and print media.",
-    features: ["Custom Concepts", "Vector Scaling", "Brand Guidelines", "Multiple Formats"],
-    gradient: "from-purple-600/20 to-violet-600/20",
-  },
-  {
-    icon: "🎨",
-    title: "UI Designing",
-    description:
-      "Creating beautiful, intuitive, and user-centered interfaces. Focusing on user experience to ensure your product is both functional and aesthetically pleasing.",
-    features: ["Figma Prototypes", "Wireframing", "User Flows", "Design Systems"],
-    gradient: "from-fuchsia-600/20 to-pink-600/20",
-  },
-  {
-    icon: "🖥️",
-    title: "PC Building",
-    description:
-      "Expert PC building services tailored to your needs. From high-end gaming rigs to professional workstations, ensuring optimal performance and aesthetics.",
-    features: ["Parts Selection", "Cable Management", "OS Installation", "Testing & Benchmarking"],
-    gradient: "from-indigo-600/20 to-purple-600/20",
-  },
+  { num: "01", name: "WEB DEVELOPMENT" },
+  { num: "02", name: "UI/UX DESIGNING" },
+  { num: "03", name: "CYBERSECURITY / PENTESTING" },
+  { num: "04", name: "LOGO DESIGNING" },
+  { num: "05", name: "PC BUILDING" },
 ];
 
 export default function Services() {
-  const handleContact = () => {
-    const el = document.querySelector("#contact");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Render exactly 2 copies — translateX(-50%) loops back to start seamlessly
+  const copies = [0, 1];
+
   return (
-    <section id="services" className="py-16 sm:py-24 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="services" style={{ background: "#000000" }}>
+
+      {/* Ticker strip */}
+      <div
+        style={{
+          background: "#0a0a0a",
+          borderTop: "1px solid #1a1a1a",
+          borderBottom: "1px solid #1a1a1a",
+          padding: "0.85rem 0",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+        }}
+        aria-hidden="true"
+      >
+        <div className="ticker-outer">
+          {copies.map((c) => (
+            <span key={c} className="ticker-set">
+              {TICKER_ITEMS.map((item) => (
+                <span key={item} className="ticker-item">
+                  {item}
+                  <span className="ticker-dot">•</span>
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "6rem 2.5rem" }}>
+
+        {/* Heading row */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-6"
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            marginBottom: "3rem",
+          }}
         >
-          <p className="text-violet-400 text-sm font-medium tracking-widest uppercase mb-3">
-            What I Offer
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text">Professional Services</h2>
+          <div>
+            <h2
+              style={{
+                fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
+                fontWeight: 900,
+                color: "#ffffff",
+                textTransform: "uppercase",
+                lineHeight: 0.88,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              WHAT I
+            </h2>
+            <h2
+              style={{
+                fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
+                fontWeight: 900,
+                color: "#222222",
+                textTransform: "uppercase",
+                lineHeight: 0.88,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              OFFER
+            </h2>
+          </div>
+
+          <div
+            style={{
+              border: "1px solid #222222",
+              borderRadius: "9999px",
+              padding: "0.5rem 1rem",
+              fontSize: "0.6rem",
+              color: "#444444",
+              fontFamily: "var(--font-geist-mono), monospace",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              whiteSpace: "nowrap",
+              alignSelf: "flex-start",
+              marginTop: "0.75rem",
+            }}
+          >
+            SKILLS &amp; SERVICES
+          </div>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-purple-200/50 text-center max-w-xl mx-auto mb-16"
-        >
-          I offer a wide range of digital services to help you build, design, and optimize
-          your online presence and hardware.
-        </motion.p>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service, i) => (
+        {/* Service rows */}
+        <div style={{ borderTop: "1px solid #1a1a1a" }}>
+          {services.map((s, i) => (
             <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              key={s.num}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="glass rounded-2xl border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300 overflow-hidden group"
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "1.75rem 0.75rem",
+                borderBottom: "1px solid #1a1a1a",
+                cursor: "pointer",
+                transition: "background 0.2s",
+              }}
+              whileHover={{ backgroundColor: "#0a0a0a" }}
+              onClick={scrollToContact}
             >
-              {/* Top gradient strip */}
-              <div className={`h-1.5 bg-gradient-to-r ${service.gradient.replace("/20", "")}`} />
-
-              <div className="p-7">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-2xl shrink-0`}>
-                    {service.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-100 group-hover:text-white transition-colors">
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-
-                <p className="text-purple-200/60 text-sm leading-relaxed mb-5">
-                  {service.description}
-                </p>
-
-                {/* Feature tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {service.features.map((feat) => (
-                    <span
-                      key={feat}
-                      className="bg-violet-900/30 border border-violet-500/20 text-violet-300 text-xs px-3 py-1 rounded-full"
-                    >
-                      {feat}
-                    </span>
-                  ))}
-                </div>
-
-                <motion.button
-                  onClick={handleContact}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-medium px-6 py-2.5 rounded-full border-0 hover:opacity-90 transition-opacity cursor-pointer"
+              <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.65rem",
+                    color: "#444444",
+                    fontFamily: "var(--font-geist-mono), monospace",
+                    letterSpacing: "0.1em",
+                    minWidth: "2rem",
+                  }}
                 >
-                  Book Service
-                </motion.button>
+                  {s.num}
+                </span>
+                <span
+                  style={{
+                    fontSize: "clamp(1.75rem, 3.5vw, 3.25rem)",
+                    fontWeight: 900,
+                    color: "#ffffff",
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1,
+                  }}
+                >
+                  {s.name}
+                </span>
+              </div>
+
+              {/* Arrow in small circle */}
+              <div
+                style={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  borderRadius: "50%",
+                  border: "1px solid #333333",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <span style={{ fontSize: "1rem", color: "#666666" }}>↗</span>
               </div>
             </motion.div>
           ))}

@@ -14,11 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abdul Baseer | Front End Developer",
-  description: "Front End Developer, UI Designer & Wifi Pentester — building digital experiences with passion and precision.",
+  title: "Abdul Baseer | Full Stack Developer",
+  description:
+    "Full Stack Developer building modern web apps, AI-powered tools, and digital experiences. Based in Karachi, PK.",
   icons: {
-    icon: "/profile.jpg",
-    apple: "/profile.jpg",
+    icon: "/favicon.jpg",
+    apple: "/favicon.jpg",
   },
 };
 
@@ -30,13 +31,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark`}
-      style={{ background: "#0a0010", colorScheme: "dark" }}
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      style={{ background: "#000000", colorScheme: "dark" }}
     >
       <head>
         <meta name="color-scheme" content="dark" />
       </head>
-      <body className="min-h-screen bg-animated antialiased" style={{ background: "#0a0010" }}>
+      <body style={{ background: "#000000" }}>
         <Providers>{children}</Providers>
       </body>
     </html>

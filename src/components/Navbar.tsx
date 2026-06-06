@@ -1,119 +1,324 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "WORK", href: "#works" },
+  { label: "SERVICES", href: "#services" },
+  { label: "EXPERIENCE", href: "#experience" },
+  { label: "ABOUT", href: "#capabilities" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleNavClick = (href: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const targetY = target.getBoundingClientRect().top + window.scrollY - 64;
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const duration = Math.min(Math.max(Math.abs(distance) * 0.4, 600), 1400);
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
   };
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        scrolled ? "glass-strong shadow-lg shadow-purple-900/20" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <motion.button
-          onClick={() => handleNavClick("#home")}
-          className="text-lg sm:text-xl font-bold gradient-text glow-text cursor-pointer bg-transparent border-0 shrink-0"
-          whileHover={{ scale: 1.05 }}
-        >
-          &lt;Abdul /&gt;
-        </motion.button>
+    <>
+      <motion.nav
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="nav-root"
+      >
+        <div className="nav-inner">
+          {/* Logo */}
+          <a href="#home" onClick={(e) => handleClick(e, "#home")} className="nav-logo">
+            <span className="nav-logo-bold">ABDUL</span>
+            <span className="nav-logo-dim">&nbsp;/ DEV</span>
+          </a>
 
-        {/* Desktop Links — show at lg */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {navLinks.map((link) => (
-            <motion.button
-              key={link.label}
-              onClick={() => handleNavClick(link.href)}
-              className="text-purple-200/70 hover:text-purple-200 transition-colors text-sm font-medium cursor-pointer relative group bg-transparent border-0"
-              whileHover={{ y: -1 }}
+          {/* Center nav links — desktop only */}
+          <div className="nav-links">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleClick(e, link.href)}
+                className="nav-link"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Right side */}
+          <div className="nav-right">
+            {/* Contact button with sheen */}
+            <a
+              href="#contact"
+              onClick={(e) => handleClick(e, "#contact")}
+              className="btn-sheen nav-contact"
             >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-violet-400 to-fuchsia-400 group-hover:w-full transition-all duration-300" />
-            </motion.button>
-          ))}
-          <motion.button
-            onClick={() => handleNavClick("#contact")}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-medium px-5 py-2 rounded-full border-0 hover:opacity-90 transition-opacity cursor-pointer shrink-0"
-          >
-            Hire Me
-          </motion.button>
+              CONTACT ↗
+            </a>
+
+            {/* Hamburger — mobile only */}
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+              className="nav-hamburger"
+            >
+              <span className={`ham-bar ${menuOpen ? "ham-top-open" : ""}`} />
+              <span className={`ham-bar ${menuOpen ? "ham-mid-open" : ""}`} />
+              <span className={`ham-bar ${menuOpen ? "ham-bot-open" : ""}`} />
+            </button>
+          </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Hamburger — show below lg */}
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2 bg-transparent border-0 cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <motion.span
-            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-purple-300 origin-center"
-          />
-          <motion.span
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-0.5 bg-purple-300"
-          />
-          <motion.span
-            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-purple-300 origin-center"
-          />
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-strong border-t border-purple-500/20 overflow-hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22 }}
+            className="nav-mobile-drawer"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-purple-200/70 hover:text-purple-200 transition-colors text-sm font-medium cursor-pointer text-left bg-transparent border-0"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleClick(e, link.href)}
+                className="nav-mobile-link"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.06 }}
+              >
+                <span className="nav-mobile-num">0{i + 1}</span>
+                {link.label}
+              </motion.a>
+            ))}
+            <a
+              href="#contact"
+              onClick={(e) => handleClick(e, "#contact")}
+              className="btn-sheen nav-mobile-contact"
+            >
+              CONTACT ↗
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+
+      <style>{`
+        /* ─── Navbar base ─── */
+        .nav-root {
+          position: fixed;
+          top: 0; left: 0; right: 0;
+          z-index: 100;
+          background: #000000;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-inner {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 2.5rem;
+          height: 64px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1.5rem;
+        }
+
+        /* ─── Logo ─── */
+        .nav-logo {
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          flex-shrink: 0;
+        }
+        .nav-logo-bold {
+          font-weight: 900;
+          color: #ffffff;
+          font-size: 0.88rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+        .nav-logo-dim {
+          font-weight: 400;
+          color: #555555;
+          font-size: 0.88rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+
+        /* ─── Desktop nav links ─── */
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 2.5rem;
+        }
+        .nav-link {
+          color: #666666;
+          text-decoration: none;
+          font-size: 0.72rem;
+          font-weight: 400;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          transition: color 0.2s;
+        }
+        .nav-link:hover { color: #ffffff; }
+
+        /* ─── Right section ─── */
+        .nav-right {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          flex-shrink: 0;
+        }
+
+        /* ─── Contact pill ─── */
+        .nav-contact {
+          border: 1px solid #ffffff;
+          border-radius: 9999px;
+          padding: 0.38rem 1.1rem;
+          color: #ffffff;
+          text-decoration: none;
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        /* ─── Hamburger — hidden on desktop ─── */
+        .nav-hamburger {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+          flex-direction: column;
+          gap: 5px;
+        }
+        .ham-bar {
+          width: 22px;
+          height: 1.5px;
+          background: #ffffff;
+          display: block;
+          transition: transform 0.25s, opacity 0.25s;
+        }
+        .ham-top-open { transform: rotate(45deg) translateY(4.5px); }
+        .ham-mid-open { opacity: 0; }
+        .ham-bot-open { transform: rotate(-45deg) translateY(-4.5px); }
+
+        /* ─── Mobile drawer ─── */
+        .nav-mobile-drawer {
+          position: fixed;
+          top: 64px; left: 0; right: 0;
+          background: #000000;
+          border-bottom: 1px solid #1a1a1a;
+          z-index: 99;
+          padding: 2rem 2rem 2.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        .nav-mobile-link {
+          color: #888888;
+          text-decoration: none;
+          font-size: 1.4rem;
+          font-weight: 900;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem 0;
+          border-bottom: 1px solid #111111;
+          transition: color 0.2s;
+        }
+        .nav-mobile-link:hover { color: #ffffff; }
+        .nav-mobile-num {
+          font-size: 0.6rem;
+          color: #333333;
+          font-family: var(--font-geist-mono), monospace;
+          letter-spacing: 0.12em;
+          flex-shrink: 0;
+        }
+        .nav-mobile-contact {
+          margin-top: 1.5rem;
+          align-self: flex-start;
+          border: 1px solid #ffffff;
+          border-radius: 9999px;
+          padding: 0.55rem 1.4rem;
+          color: #ffffff;
+          text-decoration: none;
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        /* ─── Responsive breakpoint ─── */
+        @media (max-width: 768px) {
+          .nav-inner { padding: 0 1.25rem; }
+          .nav-links  { display: none !important; }
+          .nav-contact { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+        }
+
+        /* ─── Sheen button ─── */
+        .btn-sheen {
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .btn-sheen::after {
+          content: '';
+          position: absolute;
+          top: 0; left: -100%;
+          width: 60%;
+          height: 100%;
+          background: linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.18) 50%,
+            transparent 100%
+          );
+          transform: skewX(-15deg);
+          transition: left 0s;
+          pointer-events: none;
+        }
+        .btn-sheen:hover::after {
+          left: 160%;
+          transition: left 0.5s ease;
+        }
+        .btn-sheen:hover {
+          background: rgba(255,255,255,0.06);
+          border-color: rgba(255,255,255,0.6) !important;
+        }
+      `}</style>
+    </>
   );
 }
