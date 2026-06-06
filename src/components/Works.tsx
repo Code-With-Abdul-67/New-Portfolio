@@ -23,7 +23,7 @@ const projects: Project[] = [
     tech: "NEXT.JS / TYPESCRIPT / GEMINI AI / PRISMA",
     live: "https://ai-resume-analayzer-iota.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/AI-Resume-Analayzer",
-    image: "/projects/ai-resume.png",
+    image: "/projects/airesume.png",
   },
   {
     num: "02",
