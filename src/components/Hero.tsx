@@ -67,11 +67,11 @@ export default function Hero() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <span
                 style={{
-                  border: "1px solid #2a2a2a",
+                  border: "1px solid #6d28d9",
                   borderRadius: "9999px",
                   padding: "0.3rem 0.85rem",
                   fontSize: "0.65rem",
-                  color: "#666666",
+                  color: "#ffc400",
                   letterSpacing: "0.08em",
                   fontFamily: "var(--font-geist-mono), monospace",
                   textTransform: "uppercase",
@@ -118,7 +118,7 @@ export default function Hero() {
                 style={{
                   fontSize: "clamp(4.5rem, 8vw, 9rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
+                  color: "#6d28d9",
                   textTransform: "uppercase",
                   letterSpacing: "-0.02em",
                   lineHeight: 0.88,

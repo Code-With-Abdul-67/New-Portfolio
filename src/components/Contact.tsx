@@ -29,7 +29,7 @@ export default function Contact() {
               style={{
                 fontSize: "clamp(3rem, 6vw, 6.5rem)",
                 fontWeight: 900,
-                color: "#ffffff",
+                color: "#6d28d9",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -41,7 +41,7 @@ export default function Contact() {
               style={{
                 fontSize: "clamp(3rem, 6vw, 6.5rem)",
                 fontWeight: 900,
-                color: "#2a2a2a",
+                color: "#6d28d9",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",

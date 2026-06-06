@@ -43,10 +43,19 @@ export default function Services() {
         <div className="ticker-outer">
           {copies.map((c) => (
             <span key={c} className="ticker-set">
-              {TICKER_ITEMS.map((item) => (
-                <span key={item} className="ticker-item">
+              {TICKER_ITEMS.map((item, index) => (
+                <span
+                  key={item}
+                  className="ticker-item"
+                  style={{ color: index % 2 === 0 ? "#ffc400" : "#ffffff" }}
+                >
                   {item}
-                  <span className="ticker-dot">•</span>
+                  <span
+                    className="ticker-dot"
+                    style={{ color: index % 2 === 0 ? "#ffffff" : "#ffffff" }}
+                  >
+                    •
+                  </span>
                 </span>
               ))}
             </span>
@@ -74,7 +83,7 @@ export default function Services() {
               style={{
                 fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,
-                color: "#ffffff",
+                color: "#6d28d9",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -152,7 +161,7 @@ export default function Services() {
                   style={{
                     fontSize: "clamp(1.75rem, 3.5vw, 3.25rem)",
                     fontWeight: 900,
-                    color: "#ffffff",
+                    color: i % 2 === 0 ? "#ffc400" : "#ffffff",
                     textTransform: "uppercase",
                     letterSpacing: "-0.01em",
                     lineHeight: 1,

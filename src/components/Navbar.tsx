@@ -158,7 +158,7 @@ export default function Navbar() {
         }
         .nav-logo-bold {
           font-weight: 900;
-          color: #ffffff;
+          color: #6d28d9;
           font-size: 0.88rem;
           letter-spacing: 0.06em;
           text-transform: uppercase;

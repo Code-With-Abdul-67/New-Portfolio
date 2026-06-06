@@ -68,7 +68,7 @@ export default function Footer() {
                 style={{
                   fontSize: "clamp(5rem, 13vw, 14rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
+                  color: "#6d28d9",
                   textTransform: "uppercase",
                   display: "inline-block",
                   transform: `rotate(${l.rotate}deg)`,

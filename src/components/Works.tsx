@@ -223,7 +223,7 @@ export default function Works() {
                 style={{
                   fontSize: "clamp(2rem, 3.5vw, 3.25rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
+                  color: "#6d28d9",
                   textTransform: "uppercase",
                   lineHeight: 0.95,
                   letterSpacing: "-0.02em",
