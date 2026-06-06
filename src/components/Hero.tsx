@@ -26,7 +26,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      style={{ paddingTop: "64px", minHeight: "100vh", background: "#000000" }}
+      style={{
+        paddingTop: "64px",
+        minHeight: "100vh",
+        background: "radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 28%), linear-gradient(180deg, rgba(0,0,0,0.98), rgba(7,8,15,0.98))",
+      }}
     >
       <div
         style={{
@@ -53,14 +57,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             style={{
-              background: "#111111",
-              border: "1px solid #1a1a1a",
+              background: "rgba(12, 16, 31, 0.72)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              backdropFilter: "blur(24px)",
               borderRadius: "1.25rem",
               padding: "2rem",
               display: "flex",
               flexDirection: "column",
               gap: "1.5rem",
               minHeight: "540px",
+              boxShadow: "0 40px 120px rgba(0,0,0,0.3)",
             }}
           >
             {/* Top row: badge + resume */}
@@ -89,7 +95,7 @@ export default function Hero() {
                   borderRadius: "9999px",
                   padding: "0.3rem 0.85rem",
                   fontSize: "0.65rem",
-                  color: "#666666",
+                  color: "#ffffff",
                   textDecoration: "none",
                   letterSpacing: "0.08em",
                   fontFamily: "var(--font-geist-mono), monospace",
@@ -132,7 +138,7 @@ export default function Hero() {
             <p
               style={{
                 fontSize: "0.65rem",
-                color: "#444444",
+                color: "#9e9e9e",
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
                 fontFamily: "var(--font-geist-mono), monospace",
@@ -157,16 +163,17 @@ export default function Hero() {
               {/* Left sub-card: Current Status */}
               <div
                 style={{
-                  background: "#0d0d0d",
-                  border: "1px solid #1a1a1a",
+                  background: "rgba(10, 13, 23, 0.7)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "0.875rem",
                   padding: "1rem",
+                  backdropFilter: "blur(18px)",
                 }}
               >
                 <p
                   style={{
                     fontSize: "0.58rem",
-                    color: "#444444",
+                    color: "#ffffff",
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
                     fontFamily: "var(--font-geist-mono), monospace",
@@ -196,7 +203,7 @@ export default function Hero() {
                 <p
                   style={{
                     fontSize: "0.55rem",
-                    color: "#333333",
+                    color: "#9e9e9e",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     fontFamily: "var(--font-geist-mono), monospace",
@@ -209,16 +216,17 @@ export default function Hero() {
               {/* Right sub-card: Stack */}
               <div
                 style={{
-                  background: "#0d0d0d",
-                  border: "1px solid #1a1a1a",
+                  background: "rgba(10, 13, 23, 0.7)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "0.875rem",
                   padding: "1rem",
+                  backdropFilter: "blur(18px)",
                 }}
               >
                 <p
                   style={{
                     fontSize: "0.58rem",
-                    color: "#444444",
+                    color: "#ffffff",
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
                     fontFamily: "var(--font-geist-mono), monospace",
@@ -237,7 +245,14 @@ export default function Hero() {
                         borderRadius: "9999px",
                         padding: "0.2rem 0.6rem",
                         fontSize: "0.6rem",
-                        color: "#888888",
+                        color:
+                          p === "Next.js"
+                            ? "#22c55e"
+                            : p === "React"
+                            ? "#3b82f6"
+                            : p === "PostgreSQL"
+                            ? "#facc15"
+                            : "#ffffff",
                         fontFamily: "var(--font-geist-mono), monospace",
                       }}
                     >
