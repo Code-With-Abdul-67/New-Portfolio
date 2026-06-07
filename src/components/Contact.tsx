@@ -89,6 +89,7 @@ export default function Contact() {
                 boxShadow: "0 15px 40px rgba(109, 40, 217, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
               EMAIL ME 
             </motion.a>
@@ -118,16 +119,13 @@ export default function Contact() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "2rem",
-                background: "rgba(255, 255, 255, 0.02)",
                 borderRadius: "16px",
                 textDecoration: "none",
-                border: "1px solid rgba(255, 255, 255, 0.05)",
               }}
               whileHover={{
                 scale: 1.02,
-                background: "rgba(255, 255, 255, 0.05)",
-                borderColor: "rgba(255, 255, 255, 0.1)",
               }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
               <span
                 className="text-gradient"
@@ -167,16 +165,13 @@ export default function Contact() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "2rem",
-                background: "rgba(255, 255, 255, 0.02)",
                 borderRadius: "16px",
                 textDecoration: "none",
-                border: "1px solid rgba(255, 255, 255, 0.05)",
               }}
               whileHover={{
                 scale: 1.02,
-                background: "rgba(255, 255, 255, 0.05)",
-                borderColor: "rgba(255, 255, 255, 0.1)",
               }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
               <span
                 className="text-gradient"

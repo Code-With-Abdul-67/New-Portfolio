@@ -262,20 +262,81 @@ html {
 
 /* ── Glass UI ───────────────────────────────── */
 .glass-panel {
-  background: rgba(10, 10, 18, 0.45) !important;
+  position: relative;
+  background: rgba(12, 10, 18, 0.45) !important;
   backdrop-filter: blur(20px) saturate(140%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4) !important;
-  transition: none !important;
+  transition: border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.22) 0%, rgba(15, 15, 28, 0.08) 50%, rgba(123, 52, 236, 0.12) 100%);
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-panel:hover::before {
+  opacity: 1;
 }
 
 .glass-panel:hover {
-  background: linear-gradient(135deg, rgba(109, 40, 217, 0.2) 0%, rgba(15, 15, 28, 0.55) 50%, rgba(123, 52, 236, 0.1) 100%) !important;
   border-color: rgba(137, 73, 240, 0.4) !important;
   box-shadow: 0 16px 48px 0 rgba(109, 40, 217, 0.15) !important;
-  transform: translateY(0px) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Glass Card (interactive variant) ───────── */
+.glass-card {
+  position: relative;
+  background: rgba(10, 10, 18, 0.45);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 1.25rem;
+  transition: border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.22) 0%, rgba(15, 15, 28, 0.08) 50%, rgba(123, 52, 236, 0.12) 100%);
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  border-color: rgba(137, 73, 240, 0.4);
+  box-shadow: 0 16px 48px 0 rgba(109, 40, 217, 0.15);
+}
+
+.glass-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Interactive Blur Blobs ─────────────────── */

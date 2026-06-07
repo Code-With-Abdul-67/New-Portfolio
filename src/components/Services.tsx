@@ -196,6 +196,7 @@ export default function Services() {
                 scale: 1.01,
                 boxShadow: "0 10px 40px rgba(109, 40, 217, 0.1)",
               }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               onClick={scrollToContact}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -256,7 +257,7 @@ export default function Services() {
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
-                    transition: "all 0.3s ease",
+                    transition: "background 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)",
                     transform:
                       hoveredIndex === i ? "rotate(45deg)" : "rotate(0deg)",
                   }}
@@ -275,7 +276,7 @@ export default function Services() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                     style={{ overflow: "hidden" }}
                   >
                     <div
