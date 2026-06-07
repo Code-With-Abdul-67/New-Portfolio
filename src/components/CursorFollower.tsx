@@ -1,84 +1,95 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CursorFollower() {
   const [isHovered, setIsHovered] = useState(false);
+  // Start hidden — only reveal after the first real mousemove on a fine-pointer device
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(true); // default true, set false only on desktop
+  // null = not yet determined
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    const mobile =
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      window.matchMedia("(max-width: 768px)").matches ||
-      window.matchMedia("(pointer: coarse)").matches;
-    setIsMobile(mobile);
-  }, []);
+  const cursorX = useMotionValue(-200);
+  const cursorY = useMotionValue(-200);
 
-  // Mouse coordinates using Framer Motion values
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-
-  // Physics springs for butter smooth follower
   const springConfig = { damping: 40, stiffness: 400, mass: 0.4 };
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
 
-  useEffect(() => {
-    if (isMobile) return;
+  const tracked = useRef(new Set<Element>());
 
-    // Add class to hide default cursor
+  useEffect(() => {
+    // Only enable on devices with a fine pointer (real mouse)
+    // pointer: coarse = touchscreen, pointer: fine = mouse/trackpad
+    const mq = window.matchMedia("(pointer: fine)");
+    const hasFinePointer = mq.matches;
+
+    // Also bail if this is a touch device regardless of pointer media query
+    const isTouch =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (!hasFinePointer || isTouch) {
+      setIsDesktop(false);
+      return;
+    }
+
+    setIsDesktop(true);
     document.documentElement.classList.add("custom-cursor-active");
 
-    const moveMouse = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
-
-    const handleMouseEnter = () => {
       setIsVisible(true);
     };
 
-    window.addEventListener("mousemove", moveMouse);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    const onMouseLeave = () => setIsVisible(false);
+    const onMouseEnter = () => setIsVisible(true);
 
-    // Track hover states for links/buttons
-    const addHoverClass = () => setIsHovered(true);
-    const removeHoverClass = () => setIsHovered(false);
+    window.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("mouseenter", onMouseEnter);
 
-    const updateHoverListeners = () => {
-      const clickables = document.querySelectorAll(
-        'a, button, [role="button"], input, select, textarea',
-      );
-      clickables.forEach((el) => {
-        el.addEventListener("mouseenter", addHoverClass);
-        el.addEventListener("mouseleave", removeHoverClass);
-      });
+    // Hover tracking
+    const addHover = () => setIsHovered(true);
+    const removeHover = () => setIsHovered(false);
+
+    const addListeners = (el: Element) => {
+      if (tracked.current.has(el)) return;
+      tracked.current.add(el);
+      el.addEventListener("mouseenter", addHover);
+      el.addEventListener("mouseleave", removeHover);
     };
 
-    // Update listeners initially and on DOM mutations
-    updateHoverListeners();
-    const observer = new MutationObserver(updateHoverListeners);
+    const refresh = () => {
+      document
+        .querySelectorAll('a, button, [role="button"], input, select, textarea')
+        .forEach(addListeners);
+    };
+
+    refresh();
+
+    const observer = new MutationObserver(refresh);
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       document.documentElement.classList.remove("custom-cursor-active");
-      window.removeEventListener("mousemove", moveMouse);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("mouseenter", onMouseEnter);
+      tracked.current.forEach((el) => {
+        el.removeEventListener("mouseenter", addHover);
+        el.removeEventListener("mouseleave", removeHover);
+      });
       observer.disconnect();
     };
-  }, [cursorX, cursorY, isVisible, isMobile]);
+    // intentionally run once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  if (!isVisible || isMobile) return null;
+  // Don't render anything until we've confirmed it's a desktop pointer device
+  // and the user has moved their mouse at least once
+  if (isDesktop !== true || !isVisible) return null;
 
   return (
     <>
@@ -100,7 +111,7 @@ export default function CursorFollower() {
           y: springY,
           pointerEvents: "none",
           zIndex: 999999,
-          mixBlendMode: "difference", // Essential for premium smart blending on different colored areas
+          mixBlendMode: "difference",
         }}
         animate={{
           scale: isHovered ? 1.15 : 1,
@@ -127,7 +138,7 @@ export default function CursorFollower() {
           y: cursorY,
           pointerEvents: "none",
           zIndex: 999999,
-          mixBlendMode: "difference", // Essential for premium smart blending on different colored areas
+          mixBlendMode: "difference",
         }}
         animate={{
           scale: isHovered ? 1.5 : 1,

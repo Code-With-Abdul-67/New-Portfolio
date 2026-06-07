@@ -37,6 +37,37 @@
   }
 }
 
+/* ── Preloader ───────────────────────────────── */
+.preloader-spinner {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid rgba(109, 40, 217, 0.3);
+  border-top-color: #a78bfa;
+  border-radius: 50%;
+  animation: preloader-spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes preloader-spin {
+  to { transform: rotate(360deg); }
+}
+
+.preloader-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 0.85em;
+  background: #a78bfa;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: preloader-blink 0.8s step-end infinite;
+}
+
+@keyframes preloader-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* ── Scrollbar ─────────────────────────────── */
 ::-webkit-scrollbar {
   width: 4px;

@@ -69,24 +69,24 @@ export default function Experience() {
             YEARS OF
           </h2>
           <h2
-          className="text-gradient"
+            className="text-stroke"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
-              color: "#222222",
               textTransform: "uppercase",
               lineHeight: 0.9,
               letterSpacing: "-0.02em",
+              WebkitTextStroke: "1px rgba(255,255,255,0.18)",
+              color: "transparent",
             }}
           >
             PROFESSIONAL
           </h2>
           <h2
-          className="text-gradient"
+            className="text-gradient"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
-              color: "#6d28d9",
               textTransform: "uppercase",
               lineHeight: 0.9,
               letterSpacing: "-0.02em",

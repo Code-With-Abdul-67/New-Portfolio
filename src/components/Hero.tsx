@@ -9,9 +9,8 @@ const cyclingTexts = [
   "Building Web Apps...",
   "Designing UIs...",
   "Shipping Products...",
+  "Integrating AI Tools...",
 ];
-
-const stackPills = ["Next.js", "React", "PostgreSQL", "+ More"];
 
 export default function Hero() {
   const [cycleIdx, setCycleIdx] = useState(0);
@@ -23,21 +22,24 @@ export default function Hero() {
     return () => clearInterval(id);
   }, []);
 
+  const scrollToWork = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.querySelector("#works") as HTMLElement | null;
+    if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
+  };
+
   return (
     <section
       id="home"
-      style={{
-        paddingTop: "80px",
-        minHeight: "100vh",
-        background: "transparent",
-      }}
+      style={{ paddingTop: "80px", minHeight: "100vh", background: "transparent" }}
     >
       <div
         className="hero-section-inner"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "1.5rem 1.5rem",
+          padding: "1.5rem",
           minHeight: "calc(100vh - 80px)",
           display: "flex",
           alignItems: "center",
@@ -61,171 +63,170 @@ export default function Hero() {
           <div
             className="hero-left-card"
             style={{
-              padding: "2.5rem",
+              padding: "2rem 2.5rem",
               display: "flex",
               flexDirection: "column",
-              gap: "1.5rem",
-              minHeight: "540px",
+              gap: "1rem",
+              minHeight: "520px",
             }}
           >
-            {/* Top row: badge + resume */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <span
-                style={{
-                  border: "1px solid #6d28d9",
-                  borderRadius: "9999px",
-                  padding: "0.3rem 0.85rem",
-                  fontSize: "0.65rem",
-                  color: "#ffc400",
-                  letterSpacing: "0.08em",
-                  fontFamily: "var(--font-space-mono), monospace",
-                  textTransform: "uppercase",
-                }}
-              >
+            {/* Top row: badges */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
+              <span style={{
+                border: "1px solid #6d28d9",
+                borderRadius: "9999px",
+                padding: "0.3rem 0.85rem",
+                fontSize: "0.62rem",
+                color: "#ffc400",
+                letterSpacing: "0.1em",
+                fontFamily: "var(--font-space-mono), monospace",
+                textTransform: "uppercase",
+              }}>
                 ABDUL BASEER / DEV
               </span>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-sheen"
-                style={{
-                  border: "1px solid #2a2a2a",
-                  borderRadius: "9999px",
-                  padding: "0.3rem 0.85rem",
-                  fontSize: "0.65rem",
-                  color: "#ffc400",
-                  textDecoration: "none",
-                  letterSpacing: "0.08em",
-                  fontFamily: "var(--font-space-mono), monospace",
-                  textTransform: "uppercase",
-                }}
-              >
-                VIEW RESUME
-              </a>
+              <span style={{
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "9999px",
+                padding: "0.3rem 0.85rem",
+                fontSize: "0.62rem",
+                color: "#cccccc",
+                letterSpacing: "0.1em",
+                fontFamily: "var(--font-space-mono), monospace",
+                textTransform: "uppercase",
+              }}>
+                📍 KARACHI, PK
+              </span>
             </div>
 
             {/* Big name */}
-            <div style={{ lineHeight: 0.88, flex: 1 }}>
-              <h1
-                className="text-gradient hero-name-text"
-                style={{
-                  fontSize: "clamp(4.5rem, 8vw, 9rem)",
-                  fontWeight: 900,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 0.88,
-                }}
-              >
+            <div>
+              <h1 className="text-gradient hero-name-text" style={{
+                fontSize: "clamp(4.5rem, 8vw, 9rem)",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                letterSpacing: "-0.02em",
+                lineHeight: 0.88,
+                display: "block",
+              }}>
                 ABDUL
               </h1>
-              <h1
-                className="hero-name-text"
-                style={{
-                  fontSize: "clamp(4.5rem, 8vw, 9rem)",
-                  fontWeight: 900,
-                  color: "#6d28d9",
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 0.88,
-                }}
-              >
+              <h1 className="hero-name-text" style={{
+                fontSize: "clamp(4.5rem, 8vw, 9rem)",
+                fontWeight: 900,
+                color: "#6d28d9",
+                textTransform: "uppercase",
+                letterSpacing: "-0.02em",
+                lineHeight: 0.88,
+                display: "block",
+              }}>
                 BASEER
               </h1>
             </div>
 
-            {/* Subtitle & Badge */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
-              <p
-                style={{
-                  fontSize: "0.65rem",
-                  color: "#9e9e9e",
-                  letterSpacing: "0.14em",
+            {/* OPEN FOR WORK */}
+            <div>
+              <div style={{
+                background: "rgba(2, 191, 71, 0.08)",
+                border: "1px solid rgba(2, 191, 71, 0.3)",
+                borderRadius: "9999px",
+                padding: "0.4rem 1rem",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.6rem",
+              }}>
+                <span className="status-dot" />
+                <span style={{
+                  fontSize: "0.68rem",
+                  fontWeight: 700,
+                  color: "#4ade80",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   fontFamily: "var(--font-space-mono), monospace",
-                  lineHeight: 1.7,
-                  margin: 0,
-                }}
-              >
-                FULL STACK DEVELOPER BUILDING MODERN WEB APPS,
-                <br />
-                AI-POWERED TOOLS, AND DIGITAL EXPERIENCES.
-              </p>
-
-              {/* Status badge moved here */}
-              <div
-                style={{
-                  background: "rgba(0,0,0,0.85)",
-                  border: "1px solid #2a2a2a",
-                  borderRadius: "9999px",
-                  padding: "0.55rem 1.4rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                  whiteSpace: "nowrap",
-                }}
-              >
-
-                <span className="status-dot" />
-
-                <span
-                  style={{
-                    fontSize: "0.78rem",
-                    fontWeight: 900,
-                    color: "#ffffff",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
+                }}>
                   OPEN FOR WORK
                 </span>
-                
               </div>
             </div>
 
-            {/* Bottom two sub-cards */}
+            {/* Subtitle */}
+            <p style={{
+              fontSize: "0.62rem",
+              color: "#5a5a5a",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              fontFamily: "var(--font-space-mono), monospace",
+              lineHeight: 1.8,
+              margin: 0,
+            }}>
+              FULL STACK DEVELOPER · BUILDING MODERN WEB APPS,<br />
+              AI-POWERED TOOLS, AND DIGITAL EXPERIENCES.
+            </p>
+
+            {/* CTA buttons */}
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+              <a
+                href="https://drive.google.com/file/d/1placeholder/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-sheen"
+                style={{
+                  border: "1px solid rgba(109,40,217,0.5)",
+                  borderRadius: "9999px",
+                  padding: "0.6rem 1.4rem",
+                  fontSize: "0.68rem",
+                  color: "#ffffff",
+                  textDecoration: "none",
+                  letterSpacing: "0.1em",
+                  fontFamily: "var(--font-space-mono), monospace",
+                  textTransform: "uppercase",
+                  background: "rgba(109,40,217,0.12)",
+                }}
+              >
+                VIEW RESUME ↗
+              </a>
+              <a
+                href="#works"
+                onClick={scrollToWork}
+                className="btn-sheen"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "9999px",
+                  padding: "0.6rem 1.4rem",
+                  fontSize: "0.68rem",
+                  color: "#aaaaaa",
+                  textDecoration: "none",
+                  letterSpacing: "0.1em",
+                  fontFamily: "var(--font-space-mono), monospace",
+                  textTransform: "uppercase",
+                }}
+              >
+                VIEW WORK →
+              </a>
+            </div>
+
+            {/* Bottom sub-cards */}
             <div
+              className="hero-subcards"
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 gap: "0.875rem",
                 marginTop: "auto",
               }}
-              className="hero-subcards"
             >
-              {/* Left sub-card: Current Status */}
-              <div
-                className="glass-panel"
-                style={{
-                  borderRadius: "0.875rem",
-                  padding: "1rem",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: "0.58rem",
-                    color: "#ffffff",
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    fontFamily: "var(--font-space-mono), monospace",
-                    marginBottom: "0.6rem",
-                  }}
-                >
+              {/* Status card */}
+              <div className="glass-panel" style={{
+                borderRadius: "0.875rem",
+                padding: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "110px",
+              }}>
+                <p style={{ fontSize: "0.52rem", color: "#555555", letterSpacing: "0.15em", textTransform: "uppercase", fontFamily: "var(--font-space-mono), monospace" }}>
                   CURRENT / STATUS
                 </p>
-                <div
-                  style={{
-                    minHeight: "1.4rem",
-                    overflow: "hidden",
-                    marginBottom: "0.6rem",
-                  }}
-                >
+                <div style={{ overflow: "hidden" }}>
                   <AnimatePresence mode="wait">
                     <motion.p
                       key={cycleIdx}
@@ -233,77 +234,17 @@ export default function Hero() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.3 }}
-                      style={{
-                        fontSize: "0.78rem",
-                        color: "#ffffff",
-                        fontWeight: 600,
-                      }}
+                      style={{ fontSize: "0.78rem", color: "#ffffff", fontWeight: 600 }}
                     >
                       {cyclingTexts[cycleIdx]}
                     </motion.p>
                   </AnimatePresence>
                 </div>
-                <p
-                  style={{
-                    fontSize: "0.55rem",
-                    color: "#9e9e9e",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    fontFamily: "var(--font-space-mono), monospace",
-                  }}
-                >
+                <p style={{ fontSize: "0.48rem", color: "#444444", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "var(--font-space-mono), monospace" }}>
                   IT HELPDESK / QUICKSTART TECHNOLOGIES
                 </p>
               </div>
 
-              {/* Right sub-card: Stack */}
-              <div
-                className="glass-panel"
-                style={{
-                  borderRadius: "0.875rem",
-                  padding: "1rem",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: "0.58rem",
-                    color: "#ffffff",
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    fontFamily: "var(--font-space-mono), monospace",
-                    marginBottom: "0.6rem",
-                  }}
-                >
-                  STACK
-                </p>
-                <div
-                  style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}
-                >
-                  {stackPills.map((p) => (
-                    <span
-                      key={p}
-                      style={{
-                        background: "#1a1a1a",
-                        border: "1px solid #222222",
-                        borderRadius: "9999px",
-                        padding: "0.2rem 0.6rem",
-                        fontSize: "0.6rem",
-                        color:
-                          p === "Next.js"
-                            ? "#22c55e"
-                            : p === "React"
-                              ? "#3b82f6"
-                              : p === "PostgreSQL"
-                                ? "#facc15"
-                                : "#ffffff",
-                        fontFamily: "var(--font-space-mono), monospace",
-                      }}
-                    >
-                      {p}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
 
@@ -311,12 +252,21 @@ export default function Hero() {
           <div
             className="hero-photo-card"
             style={{
-              position: "relative",
-              minHeight: "540px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "2rem 1.5rem",
             }}
           >
-            {/* Wrapper div to make the image smaller than the card */}
-            <div style={{ position: "absolute", top: "1.5rem", left: "1.5rem", right: "1.5rem", bottom: "4.5rem", borderRadius: "0.875rem", overflow: "hidden" }}>
+            {/* Fixed-size photo container — 70% wide, explicit height */}
+            <div style={{
+              position: "relative",
+              width: "80%",
+              height: "480px",
+              borderRadius: "0.875rem",
+              overflow: "hidden",
+              flexShrink: 0,
+            }}>
               <Image
                 src="/profile.jpg"
                 alt="Abdul Baseer"
@@ -324,10 +274,15 @@ export default function Hero() {
                 className="object-cover object-top"
                 priority
               />
+              {/* Gradient overlay */}
+              <div style={{
+                position: "absolute", bottom: 0, left: 0, right: 0, height: "40%",
+                background: "linear-gradient(to top, rgba(3,3,7,0.9) 0%, transparent 100%)",
+                pointerEvents: "none",
+              }} />         
             </div>
-
-
           </div>
+
         </motion.div>
       </div>
 
@@ -340,28 +295,32 @@ export default function Hero() {
           }
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 1rem !important;
           }
           .hero-left-card {
             min-height: auto !important;
             padding: 1.25rem !important;
+            gap: 1rem !important;
           }
           .hero-subcards {
             grid-template-columns: 1fr 1fr !important;
           }
           .hero-photo-card {
-            min-height: 260px !important;
+            padding: 1rem !important;
+          }
+          .hero-photo-card > div {
+            width: 85% !important;
+            height: 280px !important;
           }
           .hero-name-text {
-            font-size: clamp(3rem, 18vw, 5.5rem) !important;
+            font-size: clamp(3.2rem, 18vw, 5.5rem) !important;
           }
         }
-        @media (max-width: 400px) {
+        @media (max-width: 420px) {
           .hero-subcards {
             grid-template-columns: 1fr !important;
           }
           .hero-name-text {
-            font-size: clamp(2.5rem, 18vw, 4rem) !important;
+            font-size: clamp(2.8rem, 18vw, 4rem) !important;
           }
         }
       `}</style>

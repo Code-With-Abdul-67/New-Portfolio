@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import CursorFollower from "@/components/CursorFollower";
 import GradientSync from "@/components/GradientSync";
+import Preloader from "@/components/Preloader";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -50,6 +51,12 @@ export default function RootLayout({
       </head>
       <body style={{ background: "#020205" }}>
         <Providers>
+          {/* Ambient background blobs — fixed globally */}
+          <div className="blob blob-purple" style={{ top: "5%", left: "-10%", width: "600px", height: "600px" }} />
+          <div className="blob blob-blue" style={{ top: "40%", right: "-10%", width: "500px", height: "500px" }} />
+          <div className="blob blob-yellow" style={{ top: "75%", left: "5%", width: "450px", height: "450px" }} />
+          <div className="blob blob-purple" style={{ top: "90%", right: "5%", width: "550px", height: "550px" }} />
+          <Preloader />
           <GradientSync />
           <CursorFollower />
           {children}

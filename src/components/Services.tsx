@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const TICKER_ITEMS = [
   "NEXT.JS",
@@ -68,7 +68,15 @@ export default function Services() {
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+    // Close the expanded card first, then scroll after the collapse animation (450ms) settles
+    setHoveredIndex(null);
+    setTimeout(() => {
+      const contact = document.querySelector("#contact") as HTMLElement | null;
+      if (!contact) return;
+      const navHeight = 80;
+      const top = contact.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 460);
   };
 
   // Render exactly 2 copies — translateX(-50%) loops back to start seamlessly
@@ -78,11 +86,13 @@ export default function Services() {
     <section id="services" style={{ background: "transparent" }}>
       {/* Ticker strip */}
       <div
-        className="glass-panel"
         style={{
-          borderLeft: "none",
-          borderRight: "none",
-          borderRadius: "0px",
+          borderTop: "1px solid rgba(109, 40, 217, 0.35)",
+          borderBottom: "1px solid rgba(109, 40, 217, 0.35)",
+          background: "rgba(12, 10, 18, 0.45)",
+          backdropFilter: "blur(20px) saturate(140%)",
+          WebkitBackdropFilter: "blur(20px) saturate(140%)",
+          boxShadow: "inset 0 0 60px rgba(109, 40, 217, 0.08)",
           padding: "0.85rem 0",
           overflow: "hidden",
           whiteSpace: "nowrap",
@@ -179,116 +189,121 @@ export default function Services() {
 
         {/* Service rows */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {services.map((s, i) => (
-            <motion.div
-              key={s.num}
-              className="glass-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.01,
-                boxShadow: "0 10px 40px rgba(109, 40, 217, 0.1)",
-              }}
-              transition={{
-                opacity: { duration: 0.4, delay: i * 0.06 },
-                y: { duration: 0.4, delay: i * 0.06 },
-                scale: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-                boxShadow: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
-              }}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                padding: "2.5rem 2rem",
-                cursor: "pointer",
-              }}
-              onClick={scrollToContact}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              {/* Top Row (Number, Title, and Arrow) */}
-              <div
+          {services.map((s, i) => {
+            const isOpen = hoveredIndex === i;
+            return (
+              <motion.div
+                key={s.num}
+                className="glass-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  opacity: { duration: 0.4, delay: i * 0.06 },
+                  y: { duration: 0.4, delay: i * 0.06 },
+                }}
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "100%",
+                  flexDirection: "column",
+                  padding: "2.5rem 2rem",
+                  cursor: "pointer",
+                  borderColor: isOpen
+                    ? "rgba(137, 73, 240, 0.4)"
+                    : undefined,
+                  boxShadow: isOpen
+                    ? "0 16px 48px 0 rgba(109, 40, 217, 0.15)"
+                    : undefined,
+                  transition:
+                    "border-color 0.4s ease, box-shadow 0.4s ease",
                 }}
+                onClick={scrollToContact}
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
+                {/* Top Row */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "2.5rem",
+                    justifyContent: "space-between",
+                    width: "100%",
                   }}
                 >
-                  <span
+                  <div
                     style={{
-                      fontSize: "0.8rem",
-                      color: "#a8a8a8",
-                      fontFamily: "var(--font-space-mono), monospace",
-                      letterSpacing: "0.1em",
-                      minWidth: "2rem",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "2.5rem",
                     }}
                   >
-                    {s.num}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "clamp(1.75rem, 3.5vw, 3.25rem)",
-                      fontWeight: 900,
-                      color: i % 2 === 0 ? "#ffc400" : "#ffffff",
-                      textTransform: "uppercase",
-                      letterSpacing: "-0.01em",
-                      lineHeight: 1,
-                    }}
-                  >
-                    {s.name}
-                  </span>
-                </div>
+                    <span
+                      style={{
+                        fontSize: "0.8rem",
+                        color: "#a8a8a8",
+                        fontFamily: "var(--font-space-mono), monospace",
+                        letterSpacing: "0.1em",
+                        minWidth: "2rem",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {s.num}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "clamp(1.75rem, 3.5vw, 3.25rem)",
+                        fontWeight: 900,
+                        color: i % 2 === 0 ? "#ffc400" : "#ffffff",
+                        textTransform: "uppercase",
+                        letterSpacing: "-0.01em",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {s.name}
+                    </span>
+                  </div>
 
-                {/* Arrow in small circle */}
-                <div
-                  style={{
-                    width: "3rem",
-                    height: "3rem",
-                    borderRadius: "50%",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    background:
-                      hoveredIndex === i
-                        ? "rgba(109, 40, 217, 0.2)"
+                  {/* Arrow circle */}
+                  <div
+                    style={{
+                      width: "3rem",
+                      height: "3rem",
+                      borderRadius: "50%",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      background: isOpen
+                        ? "rgba(109, 40, 217, 0.25)"
                         : "rgba(255, 255, 255, 0.03)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    transition: "background 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)",
-                    transform:
-                      hoveredIndex === i ? "rotate(45deg)" : "rotate(0deg)",
-                  }}
-                  className="service-arrow"
-                >
-                  <span style={{ fontSize: "1.2rem", color: "#ffffff" }}>
-                    ↗
-                  </span>
-                </div>
-              </div>
-
-              {/* Expandable Content Area */}
-              <AnimatePresence>
-                {hoveredIndex === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                    style={{ overflow: "hidden" }}
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      transition:
+                        "background 0.4s ease, transform 0.4s ease",
+                      transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                    }}
                   >
+                    <span style={{ fontSize: "1.2rem", color: "#ffffff" }}>
+                      ↗
+                    </span>
+                  </div>
+                </div>
+
+                {/* Expandable content — opacity + max-height, no layout shift */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: isOpen ? "1fr" : "0fr",
+                    transition: "grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                >
+                  <div style={{ overflow: "hidden" }}>
                     <div
                       style={{
                         paddingTop: "2rem",
                         paddingLeft: "clamp(4.5rem, 6vw, 6.5rem)",
                         paddingRight: "1rem",
+                        opacity: isOpen ? 1 : 0,
+                        transition: "opacity 0.35s ease",
+                        transitionDelay: isOpen ? "0.1s" : "0s",
                       }}
                     >
                       <p
@@ -328,11 +343,11 @@ export default function Services() {
                         ))}
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

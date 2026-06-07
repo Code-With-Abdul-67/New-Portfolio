@@ -6,7 +6,7 @@ const capabilities = [
   {
     num: "01",
     category: "WEB DEVELOPMENT",
-    titleLine1: "FULL STACK.",
+    titleLine1: "FULLSTACK.",
     description:
       "Building modern web apps with Next.js, React, PostgreSQL and Tailwind CSS.",
   },
@@ -161,19 +161,13 @@ export default function Capabilities() {
                   style={{
                     fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)",
                     fontWeight: 900,
-                    color: "#702ea2",
+                    color: "#ffc400",
                     textTransform: "uppercase",
                     lineHeight: 1.05,
                     letterSpacing: "-0.01em",
                   }}
                 >
-                  {cap.titleLine1 === "FULL STACK." ? (
-                    <>
-                      <span style={{ color: "#ffc400" }}>FULLSTACK.</span>
-                    </>
-                  ) : (
-                    cap.titleLine1
-                  )}
+                  {cap.titleLine1}
                 </h3>
                 {cap.titleLine2 && (
                   <h3

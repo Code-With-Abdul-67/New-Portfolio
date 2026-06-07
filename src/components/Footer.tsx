@@ -2,24 +2,10 @@
 
 import { motion } from "framer-motion";
 
-const abdulLetters = [
-  { char: "A", rotate: -2 },
-  { char: "B", rotate: 1.5 },
-  { char: "D", rotate: -1 },
-  { char: "U", rotate: 2 },
-  { char: "L", rotate: -1.5 },
-];
-
-const baseerLetters = [
-  { char: "B", rotate: 1 },
-  { char: "A", rotate: -2 },
-  { char: "S", rotate: 1.5 },
-  { char: "E", rotate: -1 },
-  { char: "E", rotate: 2 },
-  { char: "R", rotate: -1.5 },
-];
-
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <footer
       style={{
@@ -119,17 +105,47 @@ export default function Footer() {
             FULL STACK DEVELOPER
           </span>
 
-          <span
-            style={{
-              fontFamily: "var(--font-space-mono), monospace",
-              fontSize: "0.62rem",
-              color: "#9e9e9e",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
-          >
-            KARACHI, PK
-          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+            <span
+              style={{
+                fontFamily: "var(--font-space-mono), monospace",
+                fontSize: "0.62rem",
+                color: "#9e9e9e",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              KARACHI, PK
+            </span>
+            <button
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "50%",
+                width: "32px",
+                height: "32px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                color: "#555555",
+                fontSize: "0.8rem",
+                transition: "all 0.3s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(109,40,217,0.5)";
+                e.currentTarget.style.color = "#a78bfa";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.color = "#555555";
+              }}
+            >
+              ↑
+            </button>
+          </div>
         </div>
       </div>
     </footer>

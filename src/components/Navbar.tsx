@@ -7,6 +7,7 @@ const navLinks = [
   { label: "WORK", href: "#works" },
   { label: "SERVICES", href: "#services" },
   { label: "EXPERIENCE", href: "#experience" },
+  { label: "STACK", href: "#techstack" },
   { label: "ABOUT", href: "#capabilities" },
 ];
 
@@ -102,7 +103,7 @@ export default function Navbar() {
                 className="nav-mobile-link"
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.05 }}
               >
                 <span className="nav-mobile-num">0{i + 1}</span>
                 {link.label}

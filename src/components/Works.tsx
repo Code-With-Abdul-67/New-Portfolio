@@ -8,6 +8,7 @@ interface Project {
   num: string;
   name: string;
   category: string;
+  description: string;
   tech: string;
   live: string | null;
   github: string;
@@ -20,16 +21,19 @@ const projects: Project[] = [
     num: "01",
     name: "AI RESUME ANALYZER",
     category: "AI INTEGRATED TOOL",
+    description:
+      "Analyzes resumes against job descriptions using Google Gemini AI. Provides match scores, missing skills, and tailored improvement suggestions.",
     tech: "NEXT.JS / TYPESCRIPT / GEMINI AI / PRISMA",
     live: "https://ai-resume-analayzer-iota.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/AI-Resume-Analayzer",
     image: "/projects/airesume.png",
-    
   },
   {
     num: "02",
     name: "NEXT NOTES",
     category: "FULL STACK WITH AI INTEGRATION",
+    description:
+      "A full-stack note-taking app with AI-powered summarization via Gemini. Supports auth, rich text, and PostgreSQL persistence.",
     tech: "NEXT.JS / POSTGRESQL / GEMINI AI / NEXTAUTH",
     live: "https://next-notes-sable.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/Next-Notes",
@@ -39,6 +43,8 @@ const projects: Project[] = [
     num: "03",
     name: "NEXT WEATHER",
     category: "WEB APPLICATION",
+    description:
+      "Real-time weather app with location search, 5-day forecasts, and a clean glassmorphic UI powered by the OpenWeatherMap API.",
     tech: "NEXT.JS / TAILWIND CSS / OPENWEATHERMAP API",
     live: "https://next-weather-sable.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/Next-Weather-App",
@@ -48,6 +54,8 @@ const projects: Project[] = [
     num: "04",
     name: "PHONSINT",
     category: "PYTHON OSINT TOOL",
+    description:
+      "An OSINT CLI tool for phone number reconnaissance. Extracts carrier, region, and timezone data — built for security researchers.",
     tech: "PYTHON 3",
     live: null,
     github: "https://github.com/Code-With-Abdul-67/PhonSint",
@@ -57,6 +65,8 @@ const projects: Project[] = [
     num: "05",
     name: "NET SWITCH",
     category: "CLI TOOL",
+    description:
+      "A Bash CLI utility for rapid network interface switching and management on Linux systems. Simplifies Wi-Fi/Ethernet toggling.",
     tech: "BASH",
     live: null,
     github: "https://github.com/Code-With-Abdul-67/Net-Switch",
@@ -79,7 +89,7 @@ export default function Works() {
             setActiveIndex(i);
           }
         },
-        { threshold: 0.5 },
+        { threshold: 0.3, rootMargin: "0px 0px -20% 0px" },
       );
       obs.observe(el);
       observers.push(obs);
@@ -244,10 +254,23 @@ export default function Works() {
                 {active.name}
               </h3>
 
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: "0.85rem",
+                  color: "#9e9e9e",
+                  lineHeight: 1.75,
+                  marginBottom: "1.5rem",
+                  maxWidth: "34ch",
+                }}
+              >
+                {active.description}
+              </p>
+
               {/* Tech stack */}
               <p
                 style={{
-                  fontSize: "0.62rem",
+                  fontSize: "0.58rem",
                   color: "#ffc400",
                   fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.1em",
