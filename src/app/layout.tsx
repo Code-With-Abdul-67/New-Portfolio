@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Space_Mono, Simonetta } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import CursorFollower from "@/components/CursorFollower";
+import GradientSync from "@/components/GradientSync";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -49,6 +50,7 @@ export default function RootLayout({
       </head>
       <body style={{ background: "#020205" }}>
         <Providers>
+          <GradientSync />
           <CursorFollower />
           {children}
         </Providers>

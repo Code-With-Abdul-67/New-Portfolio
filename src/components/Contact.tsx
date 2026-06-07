@@ -41,6 +41,7 @@ export default function Contact() {
               LET&apos;S BUILD
             </h2>
             <h2
+              className="text-gradient"
               style={{
                 fontSize: "clamp(3rem, 6vw, 6.5rem)",
                 fontWeight: 900,

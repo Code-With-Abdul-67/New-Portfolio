@@ -144,6 +144,7 @@ export default function Services() {
               WHAT I
             </h2>
             <h2
+              className="text-gradient"
               style={{
                 fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,

@@ -94,6 +94,7 @@ export default function Capabilities() {
             DIGITAL
           </h2>
           <h2
+            className="text-gradient"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,

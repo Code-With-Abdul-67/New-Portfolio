@@ -59,6 +59,7 @@ export default function Footer() {
               ABDUL
             </h1>
             <h1
+              className="text-gradient"
               style={{
                 fontSize: "clamp(5rem, 13vw, 14rem)",
                 fontWeight: 900,
@@ -98,7 +99,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-space-mono), monospace",
               fontSize: "0.62rem",
-              color: "#444444",
+              color: "#9e9e9e",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
             }}
@@ -110,7 +111,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-space-mono), monospace",
               fontSize: "0.62rem",
-              color: "#444444",
+              color: "#9e9e9e",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
             }}
@@ -122,7 +123,7 @@ export default function Footer() {
             style={{
               fontFamily: "var(--font-space-mono), monospace",
               fontSize: "0.62rem",
-              color: "#444444",
+              color: "#9e9e9e",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
             }}

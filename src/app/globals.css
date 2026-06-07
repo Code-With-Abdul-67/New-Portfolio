@@ -200,16 +200,18 @@ html {
 
 /* ── Glowing Gradient Text ─────────────────── */
 .text-gradient {
-  background: linear-gradient(110deg, #ffffff 0%, #a78bfa 50%, #60a5fa 100%);
-  background-size: 200% auto;
+  background: linear-gradient(110deg, #a78bfa 0%, #ffffff 18%, #a78bfa 36%, #60a5fa 68%, #a78bfa 100%);
+  background-size: 300% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 6s linear infinite;
+  animation-delay: var(--gradient-sync-delay, 0s);
 }
 
 @keyframes shine {
   to {
-    background-position: 200% center;
+    background-position: 300% center;
   }
 }
 

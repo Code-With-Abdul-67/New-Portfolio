@@ -69,6 +69,7 @@ export default function Experience() {
             YEARS OF
           </h2>
           <h2
+          className="text-gradient"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
@@ -81,6 +82,7 @@ export default function Experience() {
             PROFESSIONAL
           </h2>
           <h2
+          className="text-gradient"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
