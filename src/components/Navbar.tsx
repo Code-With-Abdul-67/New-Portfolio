@@ -42,8 +42,8 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -16, x: "-50%" }}
+        animate={{ opacity: 1, y: 0, x: "-50%" }}
         transition={{ duration: 0.5 }}
         className="nav-root"
       >
@@ -132,16 +132,21 @@ export default function Navbar() {
         /* ─── Navbar base ─── */
         .nav-root {
           position: fixed;
-          top: 0; left: 0; right: 0;
+          top: 1rem; left: 50%;
+          transform: translateX(-50%);
+          width: calc(100% - 2rem);
+          max-width: 1280px;
           z-index: 100;
-          background: #000000;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
+          background: rgba(10, 10, 18, 0.45);
+          backdrop-filter: blur(20px) saturate(140%);
+          -webkit-backdrop-filter: blur(20px) saturate(140%);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 9999px;
+          box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
         }
         .nav-inner {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 2.5rem;
-          height: 64px;
+          padding: 0 2rem;
+          height: 56px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -234,11 +239,15 @@ export default function Navbar() {
         /* ─── Mobile drawer ─── */
         .nav-mobile-drawer {
           position: fixed;
-          top: 64px; left: 0; right: 0;
-          background: #000000;
-          border-bottom: 1px solid #1a1a1a;
+          top: 5rem; left: 1rem; right: 1rem;
+          background: rgba(10, 10, 18, 0.85);
+          backdrop-filter: blur(20px) saturate(140%);
+          -webkit-backdrop-filter: blur(20px) saturate(140%);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 1.5rem;
+          box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
           z-index: 99;
-          padding: 2rem 2rem 2.5rem;
+          padding: 2rem;
           display: flex;
           flex-direction: column;
           gap: 0;
@@ -261,7 +270,7 @@ export default function Navbar() {
         .nav-mobile-num {
           font-size: 0.6rem;
           color: #333333;
-          font-family: var(--font-geist-mono), monospace;
+          font-family: var(--font-space-mono), monospace;
           letter-spacing: 0.12em;
           flex-shrink: 0;
         }

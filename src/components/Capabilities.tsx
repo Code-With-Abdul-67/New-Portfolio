@@ -56,7 +56,7 @@ export default function Capabilities() {
   return (
     <section
       id="capabilities"
-      style={{ background: "#000000", padding: "6rem 0" }}
+      style={{ background: "transparent", padding: "6rem 0" }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }} className="section-inner">
 
@@ -115,7 +115,7 @@ export default function Capabilities() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            border: "1px solid #1a1a1a",
+            border: "1px solid rgba(255, 255, 255, 0.06)",
             borderRadius: "1rem",
             overflow: "hidden",
           }}
@@ -127,11 +127,13 @@ export default function Capabilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.07 }}
+              className="glass-panel caps-cell"
               style={{
                 padding: "2rem 1.75rem",
-                background: "#111111",
-                borderRight: (i + 1) % 3 !== 0 ? "1px solid #1a1a1a" : "none",
-                borderBottom: i < 3 ? "1px solid #1a1a1a" : "none",
+                borderRadius: "0px",
+                border: "none !important",
+                borderRight: (i + 1) % 3 !== 0 ? "1px solid rgba(255, 255, 255, 0.06)" : "none",
+                borderBottom: i < capabilities.length - 3 ? "1px solid rgba(255, 255, 255, 0.06)" : "none",
               }}
             >
               {/* Small label */}
@@ -139,7 +141,7 @@ export default function Capabilities() {
                 style={{
                   fontSize: "0.58rem",
                   color: "#444444",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
                   marginBottom: "1.25rem",
@@ -194,23 +196,31 @@ export default function Capabilities() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
           .caps-grid {
             grid-template-columns: 1fr !important;
           }
-          .caps-grid > div {
+          .caps-cell {
             border-right: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+          }
+          .caps-cell:last-child {
+            border-bottom: none !important;
           }
         }
-        @media (min-width: 769px) and (max-width: 1024px) {
+        @media (min-width: 601px) and (max-width: 900px) {
           .caps-grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
-          .caps-grid > div:nth-child(2n) {
+          .caps-cell {
             border-right: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.06) !important;
           }
-          .caps-grid > div:nth-child(3) {
-            border-right: 1px solid #1a1a1a !important;
+          .caps-cell:nth-child(odd) {
+            border-right: 1px solid rgba(255,255,255,0.06) !important;
+          }
+          .caps-cell:last-child, .caps-cell:nth-last-child(2):nth-child(odd) {
+            border-bottom: none !important;
           }
         }
       `}</style>

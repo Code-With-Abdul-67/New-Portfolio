@@ -90,7 +90,7 @@ export default function Works() {
   const active = projects[activeIndex];
 
   return (
-    <section id="works" style={{ background: "#000000", padding: "6rem 0 0" }}>
+    <section id="works" style={{ background: "transparent", padding: "6rem 0 0" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Section header */}
@@ -101,17 +101,19 @@ export default function Works() {
           transition={{ duration: 0.6 }}
           style={{
             display: "flex",
-            alignItems: "flex-start",
+            flexWrap: "wrap",
+            alignItems: "flex-end",
             justifyContent: "space-between",
+            gap: "1rem",
             marginBottom: "2rem",
           }}
         >
           <div>
             <h2
+              className="text-gradient"
               style={{
-                fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
+                fontSize: "clamp(2.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,
-                color: "#ffffff",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -120,10 +122,10 @@ export default function Works() {
               SELECTED
             </h2>
             <h2
+              className="text-gradient"
               style={{
-                fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
+                fontSize: "clamp(2.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,
-                color: "#222222",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -135,24 +137,23 @@ export default function Works() {
 
           <div
             style={{
-              border: "1px solid #222222",
+              border: "1px solid rgba(255,255,255,0.08)",
               borderRadius: "9999px",
               padding: "0.5rem 1rem",
               fontSize: "0.6rem",
-              color: "#444444",
-              fontFamily: "var(--font-geist-mono), monospace",
+              color: "#666666",
+              fontFamily: "var(--font-space-mono), monospace",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               whiteSpace: "nowrap",
-              alignSelf: "flex-start",
-              marginTop: "0.75rem",
+              flexShrink: 0,
             }}
           >
             CASE STUDIES · 0{projects.length} PROJECTS
           </div>
         </motion.div>
 
-        <div style={{ borderTop: "1px solid #1a1a1a", marginBottom: "0" }} />
+        <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)", marginBottom: "0" }} />
       </div>
 
       {/* Two-column sticky layout */}
@@ -191,7 +192,7 @@ export default function Works() {
                 style={{
                   fontSize: "0.65rem",
                   color: "#444444",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   marginBottom: "1rem",
@@ -204,12 +205,12 @@ export default function Works() {
               <div style={{ marginBottom: "1.25rem" }}>
                 <span
                   style={{
-                    border: "1px solid #222222",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
                     borderRadius: "9999px",
                     padding: "0.3rem 0.85rem",
                     fontSize: "0.6rem",
                     color: "#666666",
-                    fontFamily: "var(--font-geist-mono), monospace",
+                    fontFamily: "var(--font-space-mono), monospace",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                   }}
@@ -238,7 +239,7 @@ export default function Works() {
                 style={{
                   fontSize: "0.62rem",
                   color: "#444444",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   lineHeight: 1.9,
@@ -249,7 +250,7 @@ export default function Works() {
               </p>
 
               {/* Divider */}
-              <div style={{ borderTop: "1px solid #1a1a1a", marginBottom: "1.5rem" }} />
+              <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)", marginBottom: "1.5rem" }} />
 
               {/* Links */}
               <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
@@ -260,13 +261,13 @@ export default function Works() {
                     rel="noopener noreferrer"
                     className="btn-sheen"
                     style={{
-                      border: "1px solid #333333",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
                       borderRadius: "9999px",
                       padding: "0.45rem 1.1rem",
                       fontSize: "0.62rem",
                       color: "#ffffff",
                       textDecoration: "none",
-                      fontFamily: "var(--font-geist-mono), monospace",
+                      fontFamily: "var(--font-space-mono), monospace",
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                     }}
@@ -280,13 +281,13 @@ export default function Works() {
                   rel="noopener noreferrer"
                   className="btn-sheen"
                   style={{
-                    border: "1px solid #222222",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
                     borderRadius: "9999px",
                     padding: "0.45rem 1.1rem",
                     fontSize: "0.62rem",
                     color: "#666666",
                     textDecoration: "none",
-                    fontFamily: "var(--font-geist-mono), monospace",
+                    fontFamily: "var(--font-space-mono), monospace",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                   }}
@@ -313,9 +314,8 @@ export default function Works() {
               }}
             >
               <div
+                className="glass-panel"
                 style={{
-                  background: "#111111",
-                  border: "1px solid #1a1a1a",
                   borderRadius: "1.25rem",
                   padding: "1.5rem",
                   display: "flex",
@@ -328,14 +328,14 @@ export default function Works() {
                   style={{
                     width: "100%",
                     aspectRatio: "16/9",
-                    background: "#0d0d0d",
+                    background: "rgba(0, 0, 0, 0.2)",
                     borderRadius: "0.875rem",
                     overflow: "hidden",
                     position: "relative",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "1px solid #1a1a1a",
+                    border: "1px solid rgba(255, 255, 255, 0.06)",
                   }}
                 >
                   {project.image ? (
@@ -358,30 +358,59 @@ export default function Works() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.2rem" }}>
+                      <p
+                        style={{
+                          fontSize: "0.6rem",
+                          color: "#888888",
+                          fontFamily: "var(--font-space-mono), monospace",
+                          letterSpacing: "0.1em",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {project.num} //
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "0.6rem",
+                          color: "#6d28d9",
+                          fontFamily: "var(--font-space-mono), monospace",
+                          letterSpacing: "0.1em",
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {project.category}
+                      </p>
+                    </div>
                     <p
                       style={{
-                        fontSize: "0.6rem",
-                        color: "#444444",
-                        fontFamily: "var(--font-geist-mono), monospace",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        marginBottom: "0.2rem",
-                      }}
-                    >
-                      {project.category}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "0.88rem",
+                        fontSize: "1.1rem",
                         fontWeight: 700,
                         color: "#ffffff",
                         textTransform: "uppercase",
                         letterSpacing: "0.02em",
+                        marginBottom: "0.5rem",
                       }}
                     >
                       {project.name}
                     </p>
+                    
+                    {/* Mobile Only Details */}
+                    <div className="mobile-project-details" style={{ display: "none" }}>
+                      <p
+                        style={{
+                          fontSize: "0.55rem",
+                          color: "#666666",
+                          fontFamily: "var(--font-space-mono), monospace",
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {project.tech}
+                      </p>
+                    </div>
                   </div>
 
                   <a
@@ -396,7 +425,7 @@ export default function Works() {
                       fontSize: "0.62rem",
                       color: "#888888",
                       textDecoration: "none",
-                      fontFamily: "var(--font-geist-mono), monospace",
+                      fontFamily: "var(--font-space-mono), monospace",
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                       whiteSpace: "nowrap",
@@ -417,16 +446,17 @@ export default function Works() {
           .works-layout {
             grid-template-columns: 1fr !important;
             padding: 0 1.25rem !important;
+            gap: 2rem !important;
           }
           .works-sticky-panel {
-            position: relative !important;
-            top: auto !important;
-            padding-top: 2.5rem !important;
-            padding-bottom: 1rem !important;
+            display: none !important;
           }
           .works-right-panel > div {
             min-height: auto !important;
             padding: 1.5rem 0 !important;
+          }
+          .mobile-project-details {
+            display: block !important;
           }
         }
         @media (max-width: 900px) {

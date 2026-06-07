@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import CursorFollower from "@/components/CursorFollower";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -18,8 +21,8 @@ export const metadata: Metadata = {
   description:
     "Full Stack Developer building modern web apps, AI-powered tools, and digital experiences. Based in Karachi, PK.",
   icons: {
-    icon: "/favicon.jpg",
-    apple: "/favicon.jpg",
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
@@ -31,14 +34,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-      style={{ background: "#000000", colorScheme: "dark" }}
+      className={`${plusJakartaSans.variable} ${spaceMono.variable}`}
+      style={{ background: "#020205", colorScheme: "dark" }}
     >
       <head>
         <meta name="color-scheme" content="dark" />
       </head>
-      <body style={{ background: "#000000" }}>
-        <Providers>{children}</Providers>
+      <body style={{ background: "#020205" }}>
+        <Providers>
+          <CursorFollower />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      style={{ background: "#000000", padding: "6rem 0" }}
+      style={{ background: "transparent", padding: "6rem 0" }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }} className="section-inner">
         <div
@@ -29,7 +29,7 @@ export default function Contact() {
               style={{
                 fontSize: "clamp(3rem, 6vw, 6.5rem)",
                 fontWeight: 900,
-                color: "#6d28d9",
+                color: "#ffffff",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -53,47 +53,58 @@ export default function Contact() {
 
             <p
               style={{
-                fontSize: "0.9rem",
-                color: "#666666",
+                fontSize: "1rem",
+                color: "#a8a8a8",
                 lineHeight: 1.8,
-                marginBottom: "2rem",
+                marginBottom: "2.5rem",
                 maxWidth: "32ch",
               }}
             >
               Open to freelance projects and new opportunities.
             </p>
 
-            <a
+            <motion.a
               href="mailto:codewithabdul67@gmail.com"
-              className="btn-sheen"
+              className="glass-panel"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                border: "1px solid #ffffff",
                 borderRadius: "9999px",
-                padding: "0.65rem 1.5rem",
-                fontSize: "0.72rem",
+                padding: "1rem 2rem",
+                fontSize: "0.85rem",
                 color: "#ffffff",
                 textDecoration: "none",
-                fontFamily: "var(--font-geist-mono), monospace",
+                fontFamily: "var(--font-space-mono), monospace",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
+                boxShadow: "0 10px 30px rgba(109, 40, 217, 0.2)",
               }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 15px 40px rgba(109, 40, 217, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               EMAIL ME ↗
-            </a>
+            </motion.a>
           </motion.div>
 
           {/* Right side */}
           <motion.div
+            className="glass-card"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            style={{ borderTop: "1px solid #1a1a1a" }}
+            style={{ 
+              padding: "2rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            }}
           >
-            <a
+            <motion.a
               href="https://www.linkedin.com/in/muhammad-abdul-baseer-08421b25b/"
               target="_blank"
               rel="noopener noreferrer"
@@ -101,17 +112,21 @@ export default function Contact() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "2rem 0",
-                borderBottom: "1px solid #1a1a1a",
+                padding: "2rem",
+                background: "rgba(255, 255, 255, 0.02)",
+                borderRadius: "16px",
                 textDecoration: "none",
-                transition: "padding-left 0.2s",
+                border: "1px solid rgba(255, 255, 255, 0.05)",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.paddingLeft = "0.5rem")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.paddingLeft = "0")}
+              whileHover={{ 
+                scale: 1.02,
+                background: "rgba(255, 255, 255, 0.05)",
+                borderColor: "rgba(255, 255, 255, 0.1)",
+              }}
             >
               <span
                 style={{
-                  fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                  fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
                   fontWeight: 900,
                   color: "#ffffff",
                   textTransform: "uppercase",
@@ -120,10 +135,23 @@ export default function Contact() {
               >
                 LINKEDIN
               </span>
-              <span style={{ fontSize: "1.5rem", color: "#555555" }}>↗</span>
-            </a>
+              <div
+                style={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  borderRadius: "50%",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span style={{ fontSize: "1.2rem", color: "#ffffff" }}>↗</span>
+              </div>
+            </motion.a>
 
-            <a
+            <motion.a
               href="https://github.com/Code-With-Abdul-67"
               target="_blank"
               rel="noopener noreferrer"
@@ -131,17 +159,21 @@ export default function Contact() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "2rem 0",
-                borderBottom: "1px solid #1a1a1a",
+                padding: "2rem",
+                background: "rgba(255, 255, 255, 0.02)",
+                borderRadius: "16px",
                 textDecoration: "none",
-                transition: "padding-left 0.2s",
+                border: "1px solid rgba(255, 255, 255, 0.05)",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.paddingLeft = "0.5rem")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.paddingLeft = "0")}
+              whileHover={{ 
+                scale: 1.02,
+                background: "rgba(255, 255, 255, 0.05)",
+                borderColor: "rgba(255, 255, 255, 0.1)",
+              }}
             >
               <span
                 style={{
-                  fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                  fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
                   fontWeight: 900,
                   color: "#ffffff",
                   textTransform: "uppercase",
@@ -150,8 +182,21 @@ export default function Contact() {
               >
                 GITHUB
               </span>
-              <span style={{ fontSize: "1.5rem", color: "#555555" }}>↗</span>
-            </a>
+              <div
+                style={{
+                  width: "2.5rem",
+                  height: "2.5rem",
+                  borderRadius: "50%",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span style={{ fontSize: "1.2rem", color: "#ffffff" }}>↗</span>
+              </div>
+            </motion.a>
           </motion.div>
         </div>
       </div>

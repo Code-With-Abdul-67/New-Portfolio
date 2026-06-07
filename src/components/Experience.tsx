@@ -45,7 +45,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      style={{ background: "#000000", padding: "6rem 0" }}
+      style={{ background: "transparent", padding: "6rem 0" }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }} className="section-inner">
 
@@ -96,7 +96,7 @@ export default function Experience() {
         </motion.div>
 
         {/* Timeline entries */}
-        <div style={{ borderTop: "1px solid #1a1a1a" }}>
+        <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}>
           {timeline.map((entry, i) => (
             <motion.div
               key={entry.num}
@@ -106,7 +106,7 @@ export default function Experience() {
               transition={{ duration: 0.45, delay: i * 0.08 }}
               style={{
                 padding: "2.5rem 0.5rem",
-                borderBottom: "1px solid #1a1a1a",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
               }}
             >
               {/* Top label row */}
@@ -114,7 +114,7 @@ export default function Experience() {
                 style={{
                   fontSize: "0.62rem",
                   color: "#444444",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
                   marginBottom: "0.75rem",
@@ -149,7 +149,7 @@ export default function Experience() {
                 style={{
                   fontSize: "0.62rem",
                   color: "#444444",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   marginBottom: "1.25rem",
@@ -181,7 +181,7 @@ export default function Experience() {
                       style={{
                         width: "16px",
                         height: "1px",
-                        background: "#333333",
+                        background: "rgba(255, 255, 255, 0.15)",
                         flexShrink: 0,
                       }}
                     />

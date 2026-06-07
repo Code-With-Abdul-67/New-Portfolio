@@ -27,17 +27,18 @@ export default function Hero() {
     <section
       id="home"
       style={{
-        paddingTop: "64px",
+        paddingTop: "80px",
         minHeight: "100vh",
-        background: "radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 28%), linear-gradient(180deg, rgba(0,0,0,0.98), rgba(7,8,15,0.98))",
+        background: "transparent",
       }}
     >
       <div
+        className="hero-section-inner"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "1.5rem 2.5rem",
-          minHeight: "calc(100vh - 64px)",
+          padding: "1.5rem 1.5rem",
+          minHeight: "calc(100vh - 80px)",
           display: "flex",
           alignItems: "center",
         }}
@@ -56,17 +57,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
+            className="glass-panel hero-left-card"
             style={{
-              background: "rgba(12, 16, 31, 0.72)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              backdropFilter: "blur(24px)",
               borderRadius: "1.25rem",
               padding: "2rem",
               display: "flex",
               flexDirection: "column",
               gap: "1.5rem",
               minHeight: "540px",
-              boxShadow: "0 40px 120px rgba(0,0,0,0.3)",
             }}
           >
             {/* Top row: badge + resume */}
@@ -79,7 +77,7 @@ export default function Hero() {
                   fontSize: "0.65rem",
                   color: "#ffc400",
                   letterSpacing: "0.08em",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   textTransform: "uppercase",
                 }}
               >
@@ -98,7 +96,7 @@ export default function Hero() {
                   color: "#ffffff",
                   textDecoration: "none",
                   letterSpacing: "0.08em",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                   textTransform: "uppercase",
                 }}
               >
@@ -109,10 +107,10 @@ export default function Hero() {
             {/* Big name */}
             <div style={{ lineHeight: 0.88, flex: 1 }}>
               <h1
+                className="text-gradient hero-name-text"
                 style={{
                   fontSize: "clamp(4.5rem, 8vw, 9rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
                   textTransform: "uppercase",
                   letterSpacing: "-0.02em",
                   lineHeight: 0.88,
@@ -121,6 +119,7 @@ export default function Hero() {
                 ABDUL
               </h1>
               <h1
+                className="hero-name-text"
                 style={{
                   fontSize: "clamp(4.5rem, 8vw, 9rem)",
                   fontWeight: 900,
@@ -141,7 +140,7 @@ export default function Hero() {
                 color: "#9e9e9e",
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                fontFamily: "var(--font-geist-mono), monospace",
+                fontFamily: "var(--font-space-mono), monospace",
                 lineHeight: 1.7,
               }}
             >
@@ -162,12 +161,10 @@ export default function Hero() {
             >
               {/* Left sub-card: Current Status */}
               <div
+                className="glass-panel"
                 style={{
-                  background: "rgba(10, 13, 23, 0.7)",
-                  border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "0.875rem",
                   padding: "1rem",
-                  backdropFilter: "blur(18px)",
                 }}
               >
                 <p
@@ -176,7 +173,7 @@ export default function Hero() {
                     color: "#ffffff",
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    fontFamily: "var(--font-geist-mono), monospace",
+                    fontFamily: "var(--font-space-mono), monospace",
                     marginBottom: "0.6rem",
                   }}
                 >
@@ -206,7 +203,7 @@ export default function Hero() {
                     color: "#9e9e9e",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    fontFamily: "var(--font-geist-mono), monospace",
+                    fontFamily: "var(--font-space-mono), monospace",
                   }}
                 >
                   IT HELPDESK / QUICKSTART TECHNOLOGIES
@@ -215,12 +212,10 @@ export default function Hero() {
 
               {/* Right sub-card: Stack */}
               <div
+                className="glass-panel"
                 style={{
-                  background: "rgba(10, 13, 23, 0.7)",
-                  border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "0.875rem",
                   padding: "1rem",
-                  backdropFilter: "blur(18px)",
                 }}
               >
                 <p
@@ -229,7 +224,7 @@ export default function Hero() {
                     color: "#ffffff",
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    fontFamily: "var(--font-geist-mono), monospace",
+                    fontFamily: "var(--font-space-mono), monospace",
                     marginBottom: "0.6rem",
                   }}
                 >
@@ -253,7 +248,7 @@ export default function Hero() {
                             : p === "PostgreSQL"
                             ? "#facc15"
                             : "#ffffff",
-                        fontFamily: "var(--font-geist-mono), monospace",
+                        fontFamily: "var(--font-space-mono), monospace",
                       }}
                     >
                       {p}
@@ -269,6 +264,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.12 }}
+            className="hero-photo-card"
             style={{
               border: "1px solid #1a1a1a",
               borderRadius: "1.25rem",
@@ -308,7 +304,7 @@ export default function Hero() {
                   color: "#555555",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  fontFamily: "var(--font-geist-mono), monospace",
+                  fontFamily: "var(--font-space-mono), monospace",
                 }}
               >
                 STATUS
@@ -332,11 +328,35 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
+          .hero-section-inner {
+            padding: 1rem !important;
+            min-height: auto !important;
+            align-items: flex-start !important;
+          }
           .hero-grid {
             grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+          }
+          .hero-left-card {
+            min-height: auto !important;
+            padding: 1.25rem !important;
           }
           .hero-subcards {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .hero-photo-card {
+            min-height: 260px !important;
+          }
+          .hero-name-text {
+            font-size: clamp(3rem, 18vw, 5.5rem) !important;
+          }
+        }
+        @media (max-width: 400px) {
+          .hero-subcards {
             grid-template-columns: 1fr !important;
+          }
+          .hero-name-text {
+            font-size: clamp(2.5rem, 18vw, 4rem) !important;
           }
         }
       `}</style>

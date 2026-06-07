@@ -10,19 +10,28 @@
   }
 
   html {
-    background: #000000;
+    background: #020205;
     color-scheme: dark;
   }
 
   body {
-    background: #000000;
+    background: radial-gradient(circle at 50% 0%, rgba(109, 40, 217, 0.12), transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.1), transparent 50%),
+                #030307;
     color: #ffffff;
-    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-family: var(--font-jakarta), Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
+  
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
 }
+
+
 
 /* ── Scrollbar ─────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
@@ -80,10 +89,10 @@
 .ticker-item {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-jakarta), monospace;
   font-size: 0.65rem;
   letter-spacing: 0.14em;
-  color: #3a3a3a;
+  color: #4a4a4a;
   text-transform: uppercase;
   padding: 0 0.1rem;
 }
@@ -97,12 +106,12 @@
 /* ── Global mobile responsive ────────────────── */
 @media (max-width: 768px) {
   .section-inner {
-    padding: 0 1.25rem !important;
+    padding: 0 1rem !important;
   }
 
   /* Section vertical padding */
   section {
-    padding-top: 4rem !important;
+    padding-top: 6rem !important;
     padding-bottom: 4rem !important;
   }
 
@@ -113,14 +122,13 @@
   .hero-subcards {
     grid-template-columns: 1fr !important;
   }
-  /* Hide photo card on very small screens to save space */
   .hero-photo-card {
     min-height: 320px !important;
   }
 
   /* Works header */
   .works-layout {
-    padding: 0 1.25rem !important;
+    padding: 0 1rem !important;
   }
 
   /* Capabilities */
@@ -134,7 +142,7 @@
   /* Contact */
   .contact-grid {
     grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
+    gap: 2rem !important;
   }
 
   /* Footer name */
@@ -142,7 +150,7 @@
     font-size: clamp(3.5rem, 15vw, 7rem) !important;
   }
   .footer-inner {
-    padding: 0 1.25rem !important;
+    padding: 0 1rem !important;
   }
 }
 .text-stroke {
@@ -150,13 +158,33 @@
   color: transparent;
 }
 
-/* ── Sheen button ───────────────────────────── */
+/* ── Glowing Gradient Text ─────────────────── */
+.text-gradient {
+  background: linear-gradient(110deg, #ffffff 0%, #a78bfa 50%, #60a5fa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ── Premium Neon Glass Buttons ──────────────── */
 .btn-sheen {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, background 0.2s !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
+
 .btn-sheen::after {
   content: '';
   position: absolute;
@@ -167,19 +195,88 @@
   background: linear-gradient(
     120deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.2) 50%,
     transparent 100%
   );
   transform: skewX(-15deg);
   pointer-events: none;
   transition: left 0s;
 }
+
 .btn-sheen:hover::after {
   left: 160%;
   transition: left 0.5s ease;
 }
+
 .btn-sheen:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(167, 139, 250, 0.5) !important; /* Soft purple border */
   color: #ffffff !important;
+  box-shadow: 0 0 20px 0 rgba(109, 40, 217, 0.3) !important; /* Purple glow */
+  transform: scale(1.03) !important;
 }
+
+.btn-sheen:active {
+  transform: scale(0.97) !important;
+}
+
+/* ── Glass UI ───────────────────────────────── */
+.glass-panel {
+  background: rgba(10, 10, 18, 0.45) !important;
+  backdrop-filter: blur(20px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glass-panel:hover {
+  background: rgba(15, 15, 28, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 16px 48px 0 rgba(109, 40, 217, 0.15) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ── Interactive Blur Blobs ─────────────────── */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob-purple {
+  background: radial-gradient(circle, #6d28d9 0%, transparent 70%);
+  animation: floatBlobPurple 25s infinite alternate ease-in-out;
+}
+
+.blob-blue {
+  background: radial-gradient(circle, #2563eb 0%, transparent 70%);
+  animation: floatBlobBlue 30s infinite alternate ease-in-out;
+}
+
+.blob-yellow {
+  background: radial-gradient(circle, #eab308 0%, transparent 70%);
+  animation: floatBlobYellow 28s infinite alternate ease-in-out;
+}
+
+@keyframes floatBlobPurple {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, -80px) scale(1.3); }
+  100% { transform: translate(-30px, 40px) scale(0.9); }
+}
+
+@keyframes floatBlobBlue {
+  0% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-50px, 60px) scale(0.8); }
+  100% { transform: translate(40px, -40px) scale(1.2); }
+}
+
+@keyframes floatBlobYellow {
+  0% { transform: translate(0, 0) scale(0.9); }
+  50% { transform: translate(80px, 40px) scale(1.1); }
+  100% { transform: translate(-60px, -60px) scale(0.85); }
+}
+

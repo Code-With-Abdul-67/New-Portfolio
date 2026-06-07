@@ -21,7 +21,7 @@ const baseerLetters = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#000000", borderTop: "1px solid #1a1a1a" }}>
+    <footer style={{ background: "transparent", borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}>
 
       {/* Giant display name */}
       <div
@@ -83,7 +83,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: "1px solid #1a1a1a", padding: "1.5rem 0" }}>
+      <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)", padding: "1.5rem 0" }}>
         <div
           style={{
             maxWidth: "1280px",
@@ -98,7 +98,7 @@ export default function Footer() {
         >
           <span
             style={{
-              fontFamily: "var(--font-geist-mono), monospace",
+              fontFamily: "var(--font-space-mono), monospace",
               fontSize: "0.62rem",
               color: "#444444",
               letterSpacing: "0.1em",
@@ -110,7 +110,7 @@ export default function Footer() {
 
           <span
             style={{
-              fontFamily: "var(--font-geist-mono), monospace",
+              fontFamily: "var(--font-space-mono), monospace",
               fontSize: "0.62rem",
               color: "#444444",
               letterSpacing: "0.1em",
@@ -122,7 +122,7 @@ export default function Footer() {
 
           <span
             style={{
-              fontFamily: "var(--font-geist-mono), monospace",
+              fontFamily: "var(--font-space-mono), monospace",
               fontSize: "0.62rem",
               color: "#444444",
               letterSpacing: "0.1em",
