@@ -76,7 +76,7 @@ export default function Navbar() {
               onClick={(e) => handleClick(e, "#contact")}
               className="btn-sheen nav-contact"
             >
-              CONTACT ↗
+              CONTACT ME
             </a>
 
             {/* Hamburger — mobile only */}
@@ -122,7 +122,7 @@ export default function Navbar() {
               onClick={(e) => handleClick(e, "#contact")}
               className="btn-sheen nav-mobile-contact"
             >
-              CONTACT ↗
+              CONTACT 
             </a>
           </motion.div>
         )}

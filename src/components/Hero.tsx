@@ -100,7 +100,7 @@ export default function Hero() {
                   textTransform: "uppercase",
                 }}
               >
-                VIEW RESUME ↗
+                VIEW RESUME 
               </a>
             </div>
 

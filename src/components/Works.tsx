@@ -272,7 +272,7 @@ export default function Works() {
                       textTransform: "uppercase",
                     }}
                   >
-                    VIEW LIVE ↗
+                    VIEW LIVE
                   </a>
                 )}
                 <a
@@ -292,7 +292,7 @@ export default function Works() {
                     textTransform: "uppercase",
                   }}
                 >
-                  VIEW CODE ↗
+                  VIEW CODE
                 </a>
               </div>
             </motion.div>

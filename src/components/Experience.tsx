@@ -31,7 +31,7 @@ const timeline = [
   {
     num: "03",
     period: "2024 – 2025",
-    role: "ENROLLED AT APTECH (ACCPAi)",
+    role: "APTECH PAKISTAN (ACCPAi)",
     company: "APTECH COMPUTER EDUCATION",
     current: false,
     bullets: [
@@ -56,6 +56,7 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           style={{ marginBottom: "3.5rem" }}
+          
         >
           <h2
             style={{
