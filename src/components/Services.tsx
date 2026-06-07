@@ -186,18 +186,22 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
+              whileHover={{
+                scale: 1.01,
+                boxShadow: "0 10px 40px rgba(109, 40, 217, 0.1)",
+              }}
+              transition={{
+                opacity: { duration: 0.4, delay: i * 0.06 },
+                y: { duration: 0.4, delay: i * 0.06 },
+                scale: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+                boxShadow: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+              }}
               style={{
                 display: "flex",
                 flexDirection: "column",
                 padding: "2.5rem 2rem",
                 cursor: "pointer",
               }}
-              whileHover={{
-                scale: 1.01,
-                boxShadow: "0 10px 40px rgba(109, 40, 217, 0.1)",
-              }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               onClick={scrollToContact}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
