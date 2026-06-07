@@ -57,10 +57,10 @@ export default function Experience() {
           style={{ marginBottom: "3.5rem" }}
         >
           <h2
+            className="text-gradient"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
-              color: "#6d28d9",
               textTransform: "uppercase",
               lineHeight: 0.9,
               letterSpacing: "-0.02em",
@@ -112,7 +112,7 @@ export default function Experience() {
               <p
                 style={{
                   fontSize: "0.62rem",
-                  color: "#444444",
+                  color: "#ffffff",
                   fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -150,7 +150,7 @@ export default function Experience() {
               <p
                 style={{
                   fontSize: "0.62rem",
-                  color: "#444444",
+                  color: "#abababff",
                   fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
@@ -176,7 +176,7 @@ export default function Experience() {
                       alignItems: "center",
                       gap: "0.75rem",
                       fontSize: "0.82rem",
-                      color: "#666666",
+                      color: "#ffffff",
                     }}
                   >
                     <span

@@ -19,16 +19,17 @@ const projects: Project[] = [
   {
     num: "01",
     name: "AI RESUME ANALYZER",
-    category: "AI TOOL",
+    category: "AI INTEGRATED TOOL",
     tech: "NEXT.JS / TYPESCRIPT / GEMINI AI / PRISMA",
     live: "https://ai-resume-analayzer-iota.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/AI-Resume-Analayzer",
     image: "/projects/airesume.png",
+    
   },
   {
     num: "02",
     name: "NEXT NOTES",
-    category: "FULL STACK / AI",
+    category: "FULL STACK WITH AI INTEGRATION",
     tech: "NEXT.JS / POSTGRESQL / GEMINI AI / NEXTAUTH",
     live: "https://next-notes-sable.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/Next-Notes",
@@ -37,7 +38,7 @@ const projects: Project[] = [
   {
     num: "03",
     name: "NEXT WEATHER",
-    category: "WEB APP",
+    category: "WEB APPLICATION",
     tech: "NEXT.JS / TAILWIND CSS / OPENWEATHERMAP API",
     live: "https://next-weather-sable.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/Next-Weather-App",
@@ -46,7 +47,7 @@ const projects: Project[] = [
   {
     num: "04",
     name: "PHONSINT",
-    category: "PYTHON / OSINT",
+    category: "PYTHON OSINT TOOL",
     tech: "PYTHON 3",
     live: null,
     github: "https://github.com/Code-With-Abdul-67/PhonSint",
@@ -145,7 +146,7 @@ export default function Works() {
               borderRadius: "9999px",
               padding: "0.5rem 1rem",
               fontSize: "0.6rem",
-              color: "#666666",
+              color: "#ffffff",
               fontFamily: "var(--font-space-mono), monospace",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -200,7 +201,7 @@ export default function Works() {
               <p
                 style={{
                   fontSize: "0.65rem",
-                  color: "#444444",
+                  color: "#9f9f9fff",
                   fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
@@ -218,7 +219,7 @@ export default function Works() {
                     borderRadius: "9999px",
                     padding: "0.3rem 0.85rem",
                     fontSize: "0.6rem",
-                    color: "#666666",
+                    color: "#02bf47",
                     fontFamily: "var(--font-space-mono), monospace",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
@@ -247,7 +248,7 @@ export default function Works() {
               <p
                 style={{
                   fontSize: "0.62rem",
-                  color: "#444444",
+                  color: "#ffc400",
                   fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
@@ -301,7 +302,7 @@ export default function Works() {
                     borderRadius: "9999px",
                     padding: "0.45rem 1.1rem",
                     fontSize: "0.62rem",
-                    color: "#666666",
+                    color: "#ffffff",
                     textDecoration: "none",
                     fontFamily: "var(--font-space-mono), monospace",
                     letterSpacing: "0.08em",

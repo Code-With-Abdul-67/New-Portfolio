@@ -132,10 +132,10 @@ export default function Services() {
         >
           <div>
             <h2
+              className="text-gradient"
               style={{
                 fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,
-                color: "#6d28d9",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -147,7 +147,7 @@ export default function Services() {
               style={{
                 fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,
-                color: "#ffffff",
+                color: "#6d28d9",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -313,7 +313,7 @@ export default function Services() {
                               border: "1px solid rgba(255, 255, 255, 0.1)",
                               borderRadius: "9999px",
                               fontSize: "0.8rem",
-                              color: "#e5e7eb",
+                              color: "#abababff",
                               fontFamily: "var(--font-space-mono), monospace",
                             }}
                           >

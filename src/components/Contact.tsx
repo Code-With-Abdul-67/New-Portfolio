@@ -29,10 +29,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h2
+              className="text-gradient"
               style={{
                 fontSize: "clamp(3rem, 6vw, 6.5rem)",
                 fontWeight: 900,
-                color: "#ffffff",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",
@@ -57,7 +57,7 @@ export default function Contact() {
             <p
               style={{
                 fontSize: "1rem",
-                color: "#a8a8a8",
+                color: "#ffffff",
                 lineHeight: 1.8,
                 marginBottom: "2.5rem",
                 maxWidth: "32ch",
@@ -82,6 +82,7 @@ export default function Contact() {
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 boxShadow: "0 10px 30px rgba(109, 40, 217, 0.2)",
+
               }}
               whileHover={{
                 scale: 1.05,
@@ -89,7 +90,7 @@ export default function Contact() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              EMAIL ME ↗
+              EMAIL ME 
             </motion.a>
           </motion.div>
 
@@ -111,6 +112,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/muhammad-abdul-baseer-08421b25b/"
               target="_blank"
               rel="noopener noreferrer"
+              className="glass-panel"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -128,10 +130,10 @@ export default function Contact() {
               }}
             >
               <span
+                className="text-gradient"
                 style={{
                   fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
                   textTransform: "uppercase",
                   letterSpacing: "-0.01em",
                 }}
@@ -144,7 +146,8 @@ export default function Contact() {
                   height: "2.5rem",
                   borderRadius: "50%",
                   border: "1px solid rgba(255, 255, 255, 0.1)",
-                  background: "rgba(255, 255, 255, 0.03)",
+      
+
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -158,6 +161,7 @@ export default function Contact() {
               href="https://github.com/Code-With-Abdul-67"
               target="_blank"
               rel="noopener noreferrer"
+              className="glass-panel"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -175,10 +179,10 @@ export default function Contact() {
               }}
             >
               <span
+                className="text-gradient"
                 style={{
                   fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
                   fontWeight: 900,
-                  color: "#ffffff",
                   textTransform: "uppercase",
                   letterSpacing: "-0.01em",
                 }}

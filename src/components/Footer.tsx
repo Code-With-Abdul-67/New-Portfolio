@@ -45,46 +45,32 @@ export default function Footer() {
           aria-label="Abdul Baseer"
         >
           {/* ABDUL */}
-          <div
-            className="footer-name"
-            style={{ display: "flex", lineHeight: 0.85 }}
-          >
-            {abdulLetters.map((l, i) => (
-              <span
-                key={i}
-                style={{
-                  fontSize: "clamp(5rem, 13vw, 14rem)",
-                  fontWeight: 900,
-                  color: "#ffffff",
-                  textTransform: "uppercase",
-                  display: "inline-block",
-                  transform: `rotate(${l.rotate}deg)`,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                {l.char}
-              </span>
-            ))}
-          </div>
-
-          {/* BASEER — offset right */}
-          <div style={{ display: "flex", lineHeight: 0.85, paddingLeft: "5%" }}>
-            {baseerLetters.map((l, i) => (
-              <span
-                key={i}
-                style={{
-                  fontSize: "clamp(5rem, 13vw, 14rem)",
-                  fontWeight: 900,
-                  color: "#6d28d9",
-                  textTransform: "uppercase",
-                  display: "inline-block",
-                  transform: `rotate(${l.rotate}deg)`,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                {l.char}
-              </span>
-            ))}
+          <div style={{ lineHeight: 0.85, display: "flex", flexDirection: "column" }}>
+            <h1
+              className="text-gradient"
+              style={{
+                fontSize: "clamp(5rem, 13vw, 14rem)",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                letterSpacing: "-0.03em",
+                margin: 0,
+              }}
+            >
+              ABDUL
+            </h1>
+            <h1
+              style={{
+                fontSize: "clamp(5rem, 13vw, 14rem)",
+                fontWeight: 900,
+                color: "#6d28d9",
+                textTransform: "uppercase",
+                letterSpacing: "-0.03em",
+                margin: 0,
+                paddingLeft: "5%",
+              }}
+            >
+              BASEER
+            </h1>
           </div>
         </motion.div>
       </div>

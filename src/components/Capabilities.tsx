@@ -12,32 +12,32 @@ const capabilities = [
   },
   {
     num: "02",
-    category: "UI/UX DESIGN",
-    titleLine1: "BEAUTIFUL.",
-    titleLine2: "INTERFACES.",
-    description:
-      "Crafting intuitive interfaces with Figma prototypes and design systems.",
+    category: "IT OPERATIONS",
+    titleLine1: "HELPDESK.",
+    titleLine2: "SUPPORT.",
+    description: "JIRA, Okta, AWS, and IronCircle platform management.",
   },
-  {
+    {
     num: "03",
-    category: "CYBERSECURITY",
-    titleLine1: "SECURE.",
-    titleLine2: "BY DESIGN.",
-    description: "OSINT, Wifi Pentesting, and network security assessments.",
-  },
-  {
-    num: "04",
     category: "AI INTEGRATION",
     titleLine1: "SMART.",
     titleLine2: "AUTOMATION.",
     description: "AI-powered apps with Gemini API, Prisma, and LLM tooling.",
   },
   {
+    num: "04",
+    category: "CYBERSECURITY",
+    titleLine1: "SECURE.",
+    titleLine2: "BY DESIGN.",
+    description: "OSINT, Wifi Pentesting, and network security assessments.",
+  },
+  {
     num: "05",
-    category: "IT OPERATIONS",
-    titleLine1: "HELPDESK.",
-    titleLine2: "SUPPORT.",
-    description: "JIRA, Okta, AWS, and IronCircle platform management.",
+    category: "UI/UX DESIGN",
+    titleLine1: "BEAUTIFUL.",
+    titleLine2: "INTERFACES.",
+    description:
+      "Crafting intuitive interfaces with Figma prototypes and design systems.",
   },
   {
     num: "06",
@@ -67,10 +67,10 @@ export default function Capabilities() {
           style={{ marginBottom: "3.5rem" }}
         >
           <h2
+            className="text-gradient"
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
-              color: "#ffffff",
               textTransform: "uppercase",
               lineHeight: 0.9,
               letterSpacing: "-0.02em",
@@ -144,7 +144,7 @@ export default function Capabilities() {
               <p
                 style={{
                   fontSize: "0.58rem",
-                  color: "#444444",
+                  color: "#abababff",
                   fontFamily: "var(--font-space-mono), monospace",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -166,7 +166,13 @@ export default function Capabilities() {
                     letterSpacing: "-0.01em",
                   }}
                 >
-                  {cap.titleLine1}
+                  {cap.titleLine1 === "FULL STACK." ? (
+                    <>
+                      <span style={{ color: "#ffc400" }}>FULLSTACK.</span>
+                    </>
+                  ) : (
+                    cap.titleLine1
+                  )}
                 </h3>
                 {cap.titleLine2 && (
                   <h3
@@ -188,7 +194,7 @@ export default function Capabilities() {
               <p
                 style={{
                   fontSize: "0.8rem",
-                  color: "#555555",
+                  color: "#ffffff",
                   lineHeight: 1.7,
                 }}
               >

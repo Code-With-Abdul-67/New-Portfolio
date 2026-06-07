@@ -161,7 +161,7 @@ export default function Navbar() {
         }
         .nav-logo-dim {
           font-weight: 400;
-          color: #555555;
+          color: #abababff;
           font-size: 0.88rem;
           letter-spacing: 0.06em;
           text-transform: uppercase;
@@ -174,7 +174,7 @@ export default function Navbar() {
           gap: 2.5rem;
         }
         .nav-link {
-          color: #666666;
+          color: #abababff;
           text-decoration: none;
           font-size: 0.72rem;
           font-weight: 400;
@@ -194,10 +194,10 @@ export default function Navbar() {
 
         /* ─── Contact pill ─── */
         .nav-contact {
-          border: 1px solid #ffffff;
+          border: 1px solid #ffffffff;
           border-radius: 9999px;
           padding: 0.38rem 1.1rem;
-          color: #ffffff;
+          color: #ffc400;
           text-decoration: none;
           font-size: 0.72rem;
           font-weight: 500;
@@ -316,7 +316,8 @@ export default function Navbar() {
         }
         .btn-sheen:hover {
           background: rgba(255,255,255,0.06);
-          border-color: rgba(255,255,255,0.6) !important;
+          border-color: rgba(255, 255, 255, 0.6) !important;
+          color: #8800f7ff !important;
         }
       `}</style>
     </>

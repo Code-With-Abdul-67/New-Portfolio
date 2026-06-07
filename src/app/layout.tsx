@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Mono, Simonetta } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import CursorFollower from "@/components/CursorFollower";
@@ -13,6 +13,13 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const spaceMono = Space_Mono({
   variable: "--font-space-mono",
   weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
+const simonetta = Simonetta({
+  variable: "--font-simonetta",
+  weight: ["400", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
@@ -34,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${spaceMono.variable}`}
+      className={`${plusJakartaSans.variable} ${spaceMono.variable} ${simonetta.variable}`}
       style={{ background: "#020205", colorScheme: "dark" }}
     >
       <head>

@@ -25,7 +25,7 @@
         transparent 50%),
       #030307;
     color: #ffffff;
-    font-family: var(--font-jakarta), Arial, Helvetica, sans-serif;
+    font-family: var(--font-simonetta), "Simonetta", serif, var(--font-jakarta), Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -56,7 +56,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ade80;
+  background: #02bf47;
   display: inline-block;
   flex-shrink: 0;
   position: relative;
