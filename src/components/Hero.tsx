@@ -268,7 +268,7 @@ export default function Hero() {
               flexShrink: 0,
             }}>
               <Image
-                src="/profile.jpg"
+                src="/profile.png"
                 alt="Abdul Baseer"
                 fill
                 className="object-cover object-top"
