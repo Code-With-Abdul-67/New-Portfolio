@@ -4,35 +4,62 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TICKER_ITEMS = [
-  "NEXT.JS", "TAILWINDCSS", "POSTGRESQL", "FIGMA", "REACT",
-  "HTML5", "CSS3", "PYTHON", "OSINT", "GIT", "TYPESCRIPT",
-  "FRAMER MOTION", "BOOTSTRAP", "LINUX", "VS CODE", "NEXTAUTH",
+  "NEXT.JS",
+  "TAILWINDCSS",
+  "POSTGRESQL",
+  "FIGMA",
+  "REACT",
+  "HTML5",
+  "CSS3",
+  "PYTHON",
+  "OSINT",
+  "GIT",
+  "TYPESCRIPT",
+  "FRAMER MOTION",
+  "BOOTSTRAP",
+  "LINUX",
+  "VS CODE",
+  "NEXTAUTH",
 ];
 
 const services = [
-  { 
-    num: "01", 
+  {
+    num: "01",
     name: "WEB DEVELOPMENT",
-    description: "Building fast, responsive, and SEO-friendly websites using modern technologies like Next.js, React, and Tailwind CSS. From landing pages to complex web apps.",
-    tags: ["Responsive Design", "Next.js & React", "API Integration", "Performance Setup"]
+    description:
+      "Building fast, responsive, and SEO-friendly websites using modern technologies like Next.js, React, and Tailwind CSS. From landing pages to complex web apps.",
+    tags: [
+      "Responsive Design",
+      "Next.js & React",
+      "API Integration",
+      "Performance Setup",
+    ],
   },
-  { 
-    num: "02", 
+  {
+    num: "02",
     name: "LOGO DESIGNING",
-    description: "Crafting unique and memorable visual identities that capture your brand's essence. Professional logos that work perfectly across all digital and print media.",
-    tags: ["Custom Concepts", "Vector Scaling", "Brand Guidelines"]
+    description:
+      "Crafting unique and memorable visual identities that capture your brand's essence. Professional logos that work perfectly across all digital and print media.",
+    tags: ["Custom Concepts", "Vector Scaling", "Brand Guidelines"],
   },
-  { 
-    num: "03", 
+  {
+    num: "03",
     name: "UI DESIGNING",
-    description: "Creating beautiful, intuitive, and user-centered interfaces. Focusing on user experience to ensure your product is both functional and aesthetically pleasing.",
-    tags: ["Figma Prototypes", "Wireframing", "User Flows", "Design Systems"]
+    description:
+      "Creating beautiful, intuitive, and user-centered interfaces. Focusing on user experience to ensure your product is both functional and aesthetically pleasing.",
+    tags: ["Figma Prototypes", "Wireframing", "User Flows", "Design Systems"],
   },
-  { 
-    num: "04", 
+  {
+    num: "04",
     name: "PC BUILDING",
-    description: "Expert PC building services tailored to your needs. From high-end gaming rigs to professional workstations, ensuring optimal performance and aesthetics.",
-    tags: ["Parts Selection", "Cable Management", "OS Installation", "Testing & Benchmarking"]
+    description:
+      "Expert PC building services tailored to your needs. From high-end gaming rigs to professional workstations, ensuring optimal performance and aesthetics.",
+    tags: [
+      "Parts Selection",
+      "Cable Management",
+      "OS Installation",
+      "Testing & Benchmarking",
+    ],
   },
 ];
 
@@ -49,7 +76,6 @@ export default function Services() {
 
   return (
     <section id="services" style={{ background: "transparent" }}>
-
       {/* Ticker strip */}
       <div
         className="glass-panel"
@@ -86,8 +112,9 @@ export default function Services() {
         </div>
       </div>
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "4rem 2rem" }}>
-
+      <div
+        style={{ maxWidth: "1280px", margin: "0 auto", padding: "4rem 2rem" }}
+      >
         {/* Heading row */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -165,17 +192,30 @@ export default function Services() {
                 padding: "2.5rem 2rem",
                 cursor: "pointer",
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.01,
-                boxShadow: "0 10px 40px rgba(109, 40, 217, 0.1)"
+                boxShadow: "0 10px 40px rgba(109, 40, 217, 0.1)",
               }}
               onClick={scrollToContact}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {/* Top Row (Number, Title, and Arrow) */}
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2.5rem",
+                  }}
+                >
                   <span
                     style={{
                       fontSize: "0.8rem",
@@ -208,17 +248,23 @@ export default function Services() {
                     height: "3rem",
                     borderRadius: "50%",
                     border: "1px solid rgba(255, 255, 255, 0.1)",
-                    background: hoveredIndex === i ? "rgba(109, 40, 217, 0.2)" : "rgba(255, 255, 255, 0.03)",
+                    background:
+                      hoveredIndex === i
+                        ? "rgba(109, 40, 217, 0.2)"
+                        : "rgba(255, 255, 255, 0.03)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
                     transition: "all 0.3s ease",
-                    transform: hoveredIndex === i ? "rotate(45deg)" : "rotate(0deg)",
+                    transform:
+                      hoveredIndex === i ? "rotate(45deg)" : "rotate(0deg)",
                   }}
                   className="service-arrow"
                 >
-                  <span style={{ fontSize: "1.2rem", color: "#ffffff" }}>↗</span>
+                  <span style={{ fontSize: "1.2rem", color: "#ffffff" }}>
+                    ↗
+                  </span>
                 </div>
               </div>
 
@@ -232,30 +278,40 @@ export default function Services() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     style={{ overflow: "hidden" }}
                   >
-                    <div style={{ 
-                      paddingTop: "2rem", 
-                      paddingLeft: "clamp(4.5rem, 6vw, 6.5rem)", 
-                      paddingRight: "1rem" 
-                    }}>
-                      <p style={{ 
-                        color: "#d1d5db", 
-                        fontSize: "1rem", 
-                        lineHeight: 1.6, 
-                        marginBottom: "1.5rem",
-                        maxWidth: "800px" 
-                      }}>
+                    <div
+                      style={{
+                        paddingTop: "2rem",
+                        paddingLeft: "clamp(4.5rem, 6vw, 6.5rem)",
+                        paddingRight: "1rem",
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: "#d1d5db",
+                          fontSize: "1rem",
+                          lineHeight: 1.6,
+                          marginBottom: "1.5rem",
+                          maxWidth: "800px",
+                        }}
+                      >
                         {s.description}
                       </p>
-                      
-                      <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "0.75rem",
+                          flexWrap: "wrap",
+                        }}
+                      >
                         {s.tags.map((tag) => (
-                          <span 
-                            key={tag} 
-                            style={{ 
-                              padding: "0.4rem 1rem", 
-                              background: "rgba(255, 255, 255, 0.05)", 
+                          <span
+                            key={tag}
+                            style={{
+                              padding: "0.4rem 1rem",
+                              background: "rgba(255, 255, 255, 0.05)",
                               border: "1px solid rgba(255, 255, 255, 0.1)",
-                              borderRadius: "9999px", 
+                              borderRadius: "9999px",
                               fontSize: "0.8rem",
                               color: "#e5e7eb",
                               fontFamily: "var(--font-space-mono), monospace",
@@ -269,7 +325,6 @@ export default function Services() {
                   </motion.div>
                 )}
               </AnimatePresence>
-
             </motion.div>
           ))}
         </div>

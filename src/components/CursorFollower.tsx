@@ -43,7 +43,9 @@ export default function CursorFollower() {
     const removeHoverClass = () => setIsHovered(false);
 
     const updateHoverListeners = () => {
-      const clickables = document.querySelectorAll('a, button, [role="button"], input, select, textarea');
+      const clickables = document.querySelectorAll(
+        'a, button, [role="button"], input, select, textarea',
+      );
       clickables.forEach((el) => {
         el.addEventListener("mouseenter", addHoverClass);
         el.addEventListener("mouseleave", removeHoverClass);
@@ -90,7 +92,9 @@ export default function CursorFollower() {
         }}
         animate={{
           scale: isHovered ? 1.15 : 1,
-          borderColor: isHovered ? "rgba(59, 130, 246, 0.8)" : "rgba(109, 40, 217, 0.4)",
+          borderColor: isHovered
+            ? "rgba(59, 130, 246, 0.8)"
+            : "rgba(109, 40, 217, 0.4)",
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
       />

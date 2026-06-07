@@ -68,7 +68,13 @@ export default function Hero() {
             }}
           >
             {/* Top row: badge + resume */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
               <span
                 style={{
                   border: "1px solid #6d28d9",
@@ -100,7 +106,7 @@ export default function Hero() {
                   textTransform: "uppercase",
                 }}
               >
-                VIEW RESUME 
+                VIEW RESUME
               </a>
             </div>
 
@@ -179,7 +185,13 @@ export default function Hero() {
                 >
                   CURRENT / STATUS
                 </p>
-                <div style={{ minHeight: "1.4rem", overflow: "hidden", marginBottom: "0.6rem" }}>
+                <div
+                  style={{
+                    minHeight: "1.4rem",
+                    overflow: "hidden",
+                    marginBottom: "0.6rem",
+                  }}
+                >
                   <AnimatePresence mode="wait">
                     <motion.p
                       key={cycleIdx}
@@ -230,7 +242,9 @@ export default function Hero() {
                 >
                   STACK
                 </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                <div
+                  style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}
+                >
                   {stackPills.map((p) => (
                     <span
                       key={p}
@@ -244,10 +258,10 @@ export default function Hero() {
                           p === "Next.js"
                             ? "#22c55e"
                             : p === "React"
-                            ? "#3b82f6"
-                            : p === "PostgreSQL"
-                            ? "#facc15"
-                            : "#ffffff",
+                              ? "#3b82f6"
+                              : p === "PostgreSQL"
+                                ? "#facc15"
+                                : "#ffffff",
                         fontFamily: "var(--font-space-mono), monospace",
                       }}
                     >

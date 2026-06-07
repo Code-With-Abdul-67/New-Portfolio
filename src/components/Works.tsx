@@ -78,7 +78,7 @@ export default function Works() {
             setActiveIndex(i);
           }
         },
-        { threshold: 0.5 }
+        { threshold: 0.5 },
       );
       obs.observe(el);
       observers.push(obs);
@@ -90,9 +90,13 @@ export default function Works() {
   const active = projects[activeIndex];
 
   return (
-    <section id="works" style={{ background: "transparent", padding: "6rem 0 0" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}>
-
+    <section
+      id="works"
+      style={{ background: "transparent", padding: "6rem 0 0" }}
+    >
+      <div
+        style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}
+      >
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -153,7 +157,12 @@ export default function Works() {
           </div>
         </motion.div>
 
-        <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)", marginBottom: "0" }} />
+        <div
+          style={{
+            borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+            marginBottom: "0",
+          }}
+        />
       </div>
 
       {/* Two-column sticky layout */}
@@ -250,10 +259,17 @@ export default function Works() {
               </p>
 
               {/* Divider */}
-              <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)", marginBottom: "1.5rem" }} />
+              <div
+                style={{
+                  borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+                  marginBottom: "1.5rem",
+                }}
+              />
 
               {/* Links */}
-              <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+              <div
+                style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}
+              >
                 {active.live && (
                   <a
                     href={active.live}
@@ -304,7 +320,9 @@ export default function Works() {
           {projects.map((project, i) => (
             <div
               key={project.num}
-              ref={(el) => { projectRefs.current[i] = el; }}
+              ref={(el) => {
+                projectRefs.current[i] = el;
+              }}
               style={{
                 minHeight: "100vh",
                 display: "flex",
@@ -359,7 +377,14 @@ export default function Works() {
                   }}
                 >
                   <div style={{ flex: 1 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.2rem" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        marginBottom: "0.2rem",
+                      }}
+                    >
                       <p
                         style={{
                           fontSize: "0.6rem",
@@ -395,9 +420,12 @@ export default function Works() {
                     >
                       {project.name}
                     </p>
-                    
+
                     {/* Mobile Only Details */}
-                    <div className="mobile-project-details" style={{ display: "none" }}>
+                    <div
+                      className="mobile-project-details"
+                      style={{ display: "none" }}
+                    >
                       <p
                         style={{
                           fontSize: "0.55rem",

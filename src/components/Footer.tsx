@@ -21,8 +21,12 @@ const baseerLetters = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: "transparent", borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}>
-
+    <footer
+      style={{
+        background: "transparent",
+        borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+      }}
+    >
       {/* Giant display name */}
       <div
         style={{
@@ -41,7 +45,10 @@ export default function Footer() {
           aria-label="Abdul Baseer"
         >
           {/* ABDUL */}
-          <div className="footer-name" style={{ display: "flex", lineHeight: 0.85 }}>
+          <div
+            className="footer-name"
+            style={{ display: "flex", lineHeight: 0.85 }}
+          >
             {abdulLetters.map((l, i) => (
               <span
                 key={i}
@@ -83,7 +90,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)", padding: "1.5rem 0" }}>
+      <div
+        style={{
+          borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+          padding: "1.5rem 0",
+        }}
+      >
         <div
           style={{
             maxWidth: "1280px",

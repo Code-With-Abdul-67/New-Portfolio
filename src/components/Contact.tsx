@@ -8,7 +8,10 @@ export default function Contact() {
       id="contact"
       style={{ background: "transparent", padding: "6rem 0" }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }} className="section-inner">
+      <div
+        style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}
+        className="section-inner"
+      >
         <div
           className="contact-grid"
           style={{
@@ -97,7 +100,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            style={{ 
+            style={{
               padding: "2rem",
               display: "flex",
               flexDirection: "column",
@@ -118,7 +121,7 @@ export default function Contact() {
                 textDecoration: "none",
                 border: "1px solid rgba(255, 255, 255, 0.05)",
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 background: "rgba(255, 255, 255, 0.05)",
                 borderColor: "rgba(255, 255, 255, 0.1)",
@@ -165,7 +168,7 @@ export default function Contact() {
                 textDecoration: "none",
                 border: "1px solid rgba(255, 255, 255, 0.05)",
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 background: "rgba(255, 255, 255, 0.05)",
                 borderColor: "rgba(255, 255, 255, 0.1)",

@@ -34,10 +34,7 @@ const timeline = [
     role: "APTECH PAKISTAN (ACCPAi)",
     company: "APTECH COMPUTER EDUCATION",
     current: false,
-    bullets: [
-      "UI/UX Design with Figma",
-      "PHP / MySQL / Laravel",
-    ],
+    bullets: ["UI/UX Design with Figma", "PHP / MySQL / Laravel"],
   },
 ];
 
@@ -47,8 +44,10 @@ export default function Experience() {
       id="experience"
       style={{ background: "transparent", padding: "6rem 0" }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }} className="section-inner">
-
+      <div
+        style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}
+        className="section-inner"
+      >
         {/* Big 3-line heading */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -56,7 +55,6 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           style={{ marginBottom: "3.5rem" }}
-          
         >
           <h2
             style={{
@@ -125,7 +123,10 @@ export default function Experience() {
                 }}
               >
                 {entry.current && (
-                  <span className="status-dot" style={{ width: "6px", height: "6px" }} />
+                  <span
+                    className="status-dot"
+                    style={{ width: "6px", height: "6px" }}
+                  />
                 )}
                 {entry.num} /// {entry.period}
               </p>

@@ -23,32 +23,28 @@ const capabilities = [
     category: "CYBERSECURITY",
     titleLine1: "SECURE.",
     titleLine2: "BY DESIGN.",
-    description:
-      "OSINT, Wifi Pentesting, and network security assessments.",
+    description: "OSINT, Wifi Pentesting, and network security assessments.",
   },
   {
     num: "04",
     category: "AI INTEGRATION",
     titleLine1: "SMART.",
     titleLine2: "AUTOMATION.",
-    description:
-      "AI-powered apps with Gemini API, Prisma, and LLM tooling.",
+    description: "AI-powered apps with Gemini API, Prisma, and LLM tooling.",
   },
   {
     num: "05",
     category: "IT OPERATIONS",
     titleLine1: "HELPDESK.",
     titleLine2: "SUPPORT.",
-    description:
-      "JIRA, Okta, AWS, and IronCircle platform management.",
+    description: "JIRA, Okta, AWS, and IronCircle platform management.",
   },
   {
     num: "06",
     category: "DEPLOYMENT",
     titleLine1: "SHIP.",
     titleLine2: "WITH CONFIDENCE.",
-    description:
-      "Vercel deployments, Git workflows, and CI/CD basics.",
+    description: "Vercel deployments, Git workflows, and CI/CD basics.",
   },
 ];
 
@@ -58,8 +54,10 @@ export default function Capabilities() {
       id="capabilities"
       style={{ background: "transparent", padding: "6rem 0" }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }} className="section-inner">
-
+      <div
+        style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 2.5rem" }}
+        className="section-inner"
+      >
         {/* Big 3-line heading */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -132,8 +130,14 @@ export default function Capabilities() {
                 padding: "2rem 1.75rem",
                 borderRadius: "0px",
                 border: "none !important",
-                borderRight: (i + 1) % 3 !== 0 ? "1px solid rgba(255, 255, 255, 0.06)" : "none",
-                borderBottom: i < capabilities.length - 3 ? "1px solid rgba(255, 255, 255, 0.06)" : "none",
+                borderRight:
+                  (i + 1) % 3 !== 0
+                    ? "1px solid rgba(255, 255, 255, 0.06)"
+                    : "none",
+                borderBottom:
+                  i < capabilities.length - 3
+                    ? "1px solid rgba(255, 255, 255, 0.06)"
+                    : "none",
               }}
             >
               {/* Small label */}

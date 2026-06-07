@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @layer base {
+
   *,
   *::before,
   *::after {
@@ -15,28 +16,40 @@
   }
 
   body {
-    background: radial-gradient(circle at 50% 0%, rgba(109, 40, 217, 0.12), transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.1), transparent 50%),
-                #030307;
+    background:
+      radial-gradient(circle at 50% 0%,
+        rgba(109, 40, 217, 0.12),
+        transparent 50%),
+      radial-gradient(circle at 0% 100%,
+        rgba(59, 130, 246, 0.1),
+        transparent 50%),
+      #030307;
     color: #ffffff;
     font-family: var(--font-jakarta), Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
-  
+
   .custom-cursor-active,
   .custom-cursor-active * {
     cursor: none !important;
   }
 }
 
-
-
 /* ── Scrollbar ─────────────────────────────── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000000; }
-::-webkit-scrollbar-thumb { background: #333333; border-radius: 2px; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 2px;
+}
 
 /* ── Status dot pulse ───────────────────────── */
 .status-dot {
@@ -48,8 +61,9 @@
   flex-shrink: 0;
   position: relative;
 }
+
 .status-dot::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: -3px;
   border-radius: 50%;
@@ -57,16 +71,33 @@
   opacity: 0.35;
   animation: pulse-ring 1.8s ease-out infinite;
 }
+
 @keyframes pulse-ring {
-  0%   { transform: scale(0.8); opacity: 0.4; }
-  70%  { transform: scale(1.8); opacity: 0; }
-  100% { transform: scale(0.8); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 }
 
 /* ── Ticker animation ───────────────────────── */
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Container: clips overflow */
@@ -103,6 +134,10 @@
   font-size: 0.5rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ── Global mobile responsive ────────────────── */
 @media (max-width: 768px) {
   .section-inner {
@@ -119,9 +154,11 @@
   .hero-grid {
     grid-template-columns: 1fr !important;
   }
+
   .hero-subcards {
     grid-template-columns: 1fr !important;
   }
+
   .hero-photo-card {
     min-height: 320px !important;
   }
@@ -135,7 +172,8 @@
   .caps-grid {
     grid-template-columns: 1fr !important;
   }
-  .caps-grid > div {
+
+  .caps-grid>div {
     border-right: none !important;
   }
 
@@ -149,10 +187,12 @@
   .footer-name span {
     font-size: clamp(3.5rem, 15vw, 7rem) !important;
   }
+
   .footer-inner {
     padding: 0 1rem !important;
   }
 }
+
 .text-stroke {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
   color: transparent;
@@ -186,18 +226,16 @@
 }
 
 .btn-sheen::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%);
   transform: skewX(-15deg);
   pointer-events: none;
   transition: left 0s;
@@ -210,9 +248,11 @@
 
 .btn-sheen:hover {
   background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(167, 139, 250, 0.5) !important; /* Soft purple border */
+  border-color: rgba(167, 139, 250, 0.5) !important;
+  /* Soft purple border */
   color: #ffffff !important;
-  box-shadow: 0 0 20px 0 rgba(109, 40, 217, 0.3) !important; /* Purple glow */
+  box-shadow: 0 0 20px 0 rgba(109, 40, 217, 0.3) !important;
+  /* Purple glow */
   transform: scale(1.03) !important;
 }
 
@@ -227,14 +267,15 @@
   -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4) !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: none !important;
 }
 
 .glass-panel:hover {
-  background: rgba(15, 15, 28, 0.6) !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.2) 0%, rgba(15, 15, 28, 0.55) 50%, rgba(123, 52, 236, 0.1) 100%) !important;
+  border-color: rgba(137, 73, 240, 0.4) !important;
   box-shadow: 0 16px 48px 0 rgba(109, 40, 217, 0.15) !important;
-  transform: translateY(-4px) !important;
+  transform: translateY(0px) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* ── Interactive Blur Blobs ─────────────────── */
@@ -263,20 +304,43 @@
 }
 
 @keyframes floatBlobPurple {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, -80px) scale(1.3); }
-  100% { transform: translate(-30px, 40px) scale(0.9); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(60px, -80px) scale(1.3);
+  }
+
+  100% {
+    transform: translate(-30px, 40px) scale(0.9);
+  }
 }
 
 @keyframes floatBlobBlue {
-  0% { transform: translate(0, 0) scale(1.1); }
-  50% { transform: translate(-50px, 60px) scale(0.8); }
-  100% { transform: translate(40px, -40px) scale(1.2); }
+  0% {
+    transform: translate(0, 0) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-50px, 60px) scale(0.8);
+  }
+
+  100% {
+    transform: translate(40px, -40px) scale(1.2);
+  }
 }
 
 @keyframes floatBlobYellow {
-  0% { transform: translate(0, 0) scale(0.9); }
-  50% { transform: translate(80px, 40px) scale(1.1); }
-  100% { transform: translate(-60px, -60px) scale(0.85); }
-}
+  0% {
+    transform: translate(0, 0) scale(0.9);
+  }
 
+  50% {
+    transform: translate(80px, 40px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-60px, -60px) scale(0.85);
+  }
+}

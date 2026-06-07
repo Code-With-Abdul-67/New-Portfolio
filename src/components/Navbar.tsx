@@ -13,30 +13,17 @@ const navLinks = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault();
     setMenuOpen(false);
     const target = document.querySelector(href);
     if (!target) return;
 
     const targetY = target.getBoundingClientRect().top + window.scrollY - 64;
-    const startY = window.scrollY;
-    const distance = targetY - startY;
-    const duration = Math.min(Math.max(Math.abs(distance) * 0.4, 600), 1400);
-    let startTime: number | null = null;
-
-    const easeInOutCubic = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
+    window.scrollTo({ top: targetY, behavior: "smooth" });
   };
 
   return (
@@ -49,7 +36,11 @@ export default function Navbar() {
       >
         <div className="nav-inner">
           {/* Logo */}
-          <a href="#home" onClick={(e) => handleClick(e, "#home")} className="nav-logo">
+          <a
+            href="#home"
+            onClick={(e) => handleClick(e, "#home")}
+            className="nav-logo"
+          >
             <span className="nav-logo-bold">ABDUL</span>
             <span className="nav-logo-dim">&nbsp;/ DEV</span>
           </a>
@@ -122,7 +113,7 @@ export default function Navbar() {
               onClick={(e) => handleClick(e, "#contact")}
               className="btn-sheen nav-mobile-contact"
             >
-              CONTACT 
+              CONTACT
             </a>
           </motion.div>
         )}
