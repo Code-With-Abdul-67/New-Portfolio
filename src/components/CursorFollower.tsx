@@ -6,6 +6,16 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 export default function CursorFollower() {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // default true, set false only on desktop
+
+  useEffect(() => {
+    const mobile =
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(max-width: 768px)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+    setIsMobile(mobile);
+  }, []);
 
   // Mouse coordinates using Framer Motion values
   const cursorX = useMotionValue(-100);
@@ -17,6 +27,8 @@ export default function CursorFollower() {
   const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    if (isMobile) return;
+
     // Add class to hide default cursor
     document.documentElement.classList.add("custom-cursor-active");
 
@@ -64,9 +76,9 @@ export default function CursorFollower() {
       document.removeEventListener("mouseenter", handleMouseEnter);
       observer.disconnect();
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [cursorX, cursorY, isVisible, isMobile]);
 
-  if (!isVisible) return null;
+  if (!isVisible || isMobile) return null;
 
   return (
     <>
