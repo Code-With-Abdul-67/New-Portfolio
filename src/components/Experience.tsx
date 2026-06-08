@@ -6,7 +6,7 @@ const timeline = [
   {
     num: "01",
     period: "MAR 2026 – PRESENT",
-    role: "JR. PLATFORM SUPPORT SPECIALIST",
+    role: "IT HELP DESK",
     company: "QUICKSTART TECHNOLOGIES",
     current: true,
     bullets: [
