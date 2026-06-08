@@ -204,7 +204,7 @@ export default function Contact() {
             <p
               style={{
                 fontSize: "0.6rem",
-                color: "#555555",
+                color: "#ffffff",
                 fontFamily: "var(--font-space-mono), monospace",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
@@ -272,7 +272,7 @@ export default function Contact() {
                     style={{
                       display: "block",
                       fontSize: "0.58rem",
-                      color: "#555555",
+                      color: "#ffffff",
                       fontFamily: "var(--font-space-mono), monospace",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",
@@ -319,7 +319,7 @@ export default function Contact() {
                     style={{
                       display: "block",
                       fontSize: "0.58rem",
-                      color: "#555555",
+                      color: "#ffffff",
                       fontFamily: "var(--font-space-mono), monospace",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",
@@ -366,7 +366,7 @@ export default function Contact() {
                     style={{
                       display: "block",
                       fontSize: "0.58rem",
-                      color: "#555555",
+                      color: "#ffffff",
                       fontFamily: "var(--font-space-mono), monospace",
                       letterSpacing: "0.15em",
                       textTransform: "uppercase",

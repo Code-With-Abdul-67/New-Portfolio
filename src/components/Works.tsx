@@ -23,7 +23,7 @@ const projects: Project[] = [
     category: "AI INTEGRATED TOOL",
     description:
       "Analyzes resumes against job descriptions using Google Gemini AI. Provides match scores, missing skills, and tailored improvement suggestions.",
-    tech: "NEXT.JS / TYPESCRIPT / GEMINI AI / PRISMA",
+    tech: "NEXT.JS / GEMINI AI / PRISMA / POSTGRESQL",
     live: "https://ai-resume-analayzer-iota.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/AI-Resume-Analayzer",
     image: "/projects/airesume.png",
@@ -34,7 +34,7 @@ const projects: Project[] = [
     category: "FULL STACK WITH AI INTEGRATION",
     description:
       "A full-stack note-taking app with AI-powered summarization via Gemini. Supports auth, rich text, and PostgreSQL persistence.",
-    tech: "NEXT.JS / POSTGRESQL / GEMINI AI / NEXTAUTH",
+    tech: "NEXT.JS / POSTGRESQL / PRISMA / GEMINI AI ",
     live: "https://next-notes-sable.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/Next-Notes",
     image: "/projects/nextnotes.png",
