@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const cyclingTexts = [
-  "IT Help Desk @ Quickstart",
+  "Platform Support @ Quickstart",
   "Building Web Apps...",
   "Designing UIs...",
   "Shipping Products...",
@@ -82,7 +82,7 @@ export default function Hero() {
                 fontFamily: "var(--font-space-mono), monospace",
                 textTransform: "uppercase",
               }}>
-                ABDUL BASEER / DEV
+                ABDUL BASEER / PLATFORM SUPPORT & DEV
               </span>
               <span style={{
                 border: "1px solid rgba(255,255,255,0.08)",
@@ -158,14 +158,14 @@ export default function Hero() {
               lineHeight: 1.8,
               margin: 0,
             }}>
-              FULL STACK DEVELOPER · BUILDING MODERN WEB APPS,<br />
-              AI-POWERED TOOLS, AND DIGITAL EXPERIENCES.
+              PLATFORM SUPPORT SPECIALIST · FULL STACK DEVELOPER,<br />
+              AI-POWERED TOOLS &amp; MODERN WEB EXPERIENCES.
             </p>
 
             {/* CTA buttons */}
             <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
               <a
-                href="https://drive.google.com/file/d/1placeholder/view"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-sheen"
@@ -241,7 +241,7 @@ export default function Hero() {
                   </AnimatePresence>
                 </div>
                 <p style={{ fontSize: "0.48rem", color: "#444444", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "var(--font-space-mono), monospace" }}>
-                  IT HELPDESK / QUICKSTART TECHNOLOGIES
+                  JR. PLATFORM SUPPORT SPECIALIST / QUICKSTART TECHNOLOGIES
                 </p>
               </div>
 

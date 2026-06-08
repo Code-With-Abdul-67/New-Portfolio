@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 const timeline = [
   {
     num: "01",
-    period: "PRESENT",
-    role: "IT HELP DESK",
+    period: "MAR 2026 – PRESENT",
+    role: "JR. PLATFORM SUPPORT SPECIALIST",
     company: "QUICKSTART TECHNOLOGIES",
     current: true,
     bullets: [
-      "Ticket management on JIRA",
-      "Identity & access via Okta",
-      "AWS cloud infrastructure",
-      "IronCircle platform operations",
+      "Incident management via JIRA",
+      "Infrastructure & app troubleshooting",
+      "Cross-team service reliability",
+      "Technical customer assistance",
     ],
   },
   {
@@ -22,19 +22,20 @@ const timeline = [
     role: "FULL STACK DEVELOPER",
     company: "FREELANCE",
     bullets: [
-      "HTML5, CSS3, JS, Bootstrap",
-      "Next.js & React",
-      "PostgreSQL & Tailwind CSS",
-      "Git / GitHub",
+      "Next.js, React & TypeScript",
+      "PostgreSQL, Prisma ORM",
+      "Tailwind CSS & Framer Motion",
+      "AI integrations (Gemini AI)",
     ],
   },
-  {
+    {
     num: "03",
-    period: "2024 – 2025",
-    role: "APTECH PAKISTAN (ACCPAi)",
-    company: "APTECH COMPUTER EDUCATION",
-    current: false,
-    bullets: ["UI/UX Design with Figma", "PHP / MySQL / Laravel"],
+    period: "2025",
+    role: "APTECH PAKISTAN",
+    company: "ONSITE",
+    bullets: [
+      "PHP & MYSQL",
+    ],
   },
 ];
 
@@ -100,7 +101,7 @@ export default function Experience() {
         <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}>
           {timeline.map((entry, i) => (
             <motion.div
-              key={entry.num}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
