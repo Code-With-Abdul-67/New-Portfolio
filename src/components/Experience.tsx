@@ -31,7 +31,7 @@ const timeline = [
     {
     num: "03",
     period: "2025",
-    role: "APTECH PAKISTAN",
+    role: "ACCPAI FROM APTECH PAKISTAN",
     company: "ONSITE",
     bullets: [
       "PHP & MYSQL",
