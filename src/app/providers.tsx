@@ -6,24 +6,19 @@ import Lenis from "lenis";
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.07,          // smooth factor — lower = slower/smoother
       smoothWheel: true,
-      wheelMultiplier: 1,
+      wheelMultiplier: 0.9,
+      autoRaf: true,       // Lenis manages its own RAF loop — no manual raf needed
     });
 
-    let rafId: number;
-
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-
-    rafId = requestAnimationFrame(raf);
+    // Expose lenis on window so IntersectionObserver-based sticky works
+    // by keeping native scrollY in sync
+    (window as unknown as Record<string, unknown>).__lenis__ = lenis;
 
     return () => {
-      cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete (window as unknown as Record<string, unknown>).__lenis__;
     };
   }, []);
 

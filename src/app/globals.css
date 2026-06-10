@@ -13,6 +13,12 @@
   html {
     background: #020205;
     color-scheme: dark;
+    overflow-y: scroll; /* keep scroll container intact for position:sticky */
+    scrollbar-width: none; /* Firefox — hide scrollbar */
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari — hide scrollbar */
   }
 
   body {
@@ -26,7 +32,7 @@
       #030307;
     color: #ffffff;
     font-family: var(--font-simonetta), "Simonetta", serif, var(--font-jakarta), Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
@@ -68,18 +74,12 @@
   50% { opacity: 0; }
 }
 
-/* ── Scrollbar ─────────────────────────────── */
-::-webkit-scrollbar {
-  width: 4px;
+/* ── Scrollbar hidden, scroll container preserved ─ */
+* {
+  scrollbar-width: none;
 }
-
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #333333;
-  border-radius: 2px;
+*::-webkit-scrollbar {
+  display: none;
 }
 
 /* ── Status dot pulse ───────────────────────── */
@@ -176,7 +176,7 @@ html {
   }
 
   /* Section vertical padding */
-  section {
+  section:not(#works) {
     padding-top: 6rem !important;
     padding-bottom: 4rem !important;
   }

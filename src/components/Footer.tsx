@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+
   return (
     <footer
       style={{
@@ -117,34 +115,6 @@ export default function Footer() {
             >
               KARACHI, PK
             </span>
-            <button
-              onClick={scrollToTop}
-              aria-label="Scroll to top"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "50%",
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                color: "#555555",
-                fontSize: "0.8rem",
-                transition: "all 0.3s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(109,40,217,0.5)";
-                e.currentTarget.style.color = "#a78bfa";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                e.currentTarget.style.color = "#555555";
-              }}
-            >
-              ↑
-            </button>
           </div>
         </div>
       </div>

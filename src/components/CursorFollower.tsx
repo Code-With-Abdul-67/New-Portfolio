@@ -1,35 +1,27 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 export default function CursorFollower() {
   const [isHovered, setIsHovered] = useState(false);
-  // Start hidden — only reveal after the first real mousemove on a fine-pointer device
   const [isVisible, setIsVisible] = useState(false);
-  // null = not yet determined
   const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
 
-  const cursorX = useMotionValue(-200);
-  const cursorY = useMotionValue(-200);
+  const cursorX = useMotionValue(-9999);
+  const cursorY = useMotionValue(-9999);
 
-  const springConfig = { damping: 40, stiffness: 400, mass: 0.4 };
+  const springConfig = { damping: 35, stiffness: 320, mass: 0.5 };
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
 
   const tracked = useRef(new Set<Element>());
 
   useEffect(() => {
-    // Only enable on devices with a fine pointer (real mouse)
-    // pointer: coarse = touchscreen, pointer: fine = mouse/trackpad
     const mq = window.matchMedia("(pointer: fine)");
-    const hasFinePointer = mq.matches;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
-    // Also bail if this is a touch device regardless of pointer media query
-    const isTouch =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-    if (!hasFinePointer || isTouch) {
+    if (!mq.matches || isTouch) {
       setIsDesktop(false);
       return;
     }
@@ -50,7 +42,6 @@ export default function CursorFollower() {
     document.addEventListener("mouseleave", onMouseLeave);
     document.addEventListener("mouseenter", onMouseEnter);
 
-    // Hover tracking
     const addHover = () => setIsHovered(true);
     const removeHover = () => setIsHovered(false);
 
@@ -68,7 +59,6 @@ export default function CursorFollower() {
     };
 
     refresh();
-
     const observer = new MutationObserver(refresh);
     observer.observe(document.body, { childList: true, subtree: true });
 
@@ -83,65 +73,102 @@ export default function CursorFollower() {
       });
       observer.disconnect();
     };
-    // intentionally run once
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Don't render anything until we've confirmed it's a desktop pointer device
-  // and the user has moved their mouse at least once
   if (isDesktop !== true || !isVisible) return null;
 
   return (
     <>
-      {/* Outer follow ring */}
-      <motion.div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: isHovered ? 64 : 36,
-          height: isHovered ? 64 : 36,
-          marginLeft: isHovered ? -32 : -18,
-          marginTop: isHovered ? -32 : -18,
-          borderRadius: "50%",
-          border: "1.5px solid rgba(109, 40, 217, 0.4)",
-          background: isHovered ? "rgba(109, 40, 217, 0.08)" : "transparent",
-          boxShadow: isHovered ? "0 0 20px rgba(109, 40, 217, 0.2)" : "none",
-          x: springX,
-          y: springY,
-          pointerEvents: "none",
-          zIndex: 999999,
-          mixBlendMode: "difference",
-        }}
-        animate={{
-          scale: isHovered ? 1.15 : 1,
-          borderColor: isHovered
-            ? "rgba(59, 130, 246, 0.8)"
-            : "rgba(109, 40, 217, 0.4)",
-        }}
-        transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      />
+      <style>{`
+        @media (pointer: coarse) {
+          .cursor-follower { display: none !important; }
+        }
+      `}</style>
 
-      {/* Inner gradient dot */}
+      {/* ── DEFAULT: glass purple ring (no hover) ── */}
+      <AnimatePresence>
+        {!isHovered && (
+          <motion.div
+            className="cursor-follower"
+            key="default-ring"
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.6 }}
+            transition={{ duration: 0.18 }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              x: springX,
+              y: springY,
+              marginLeft: -18,
+              marginTop: -18,
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              background: "rgba(109, 40, 217, 0.08)",
+              backdropFilter: "blur(4px) saturate(1.4)",
+              WebkitBackdropFilter: "blur(4px) saturate(1.4)",
+              border: "1.5px solid rgba(167, 139, 250, 0.55)",
+              boxShadow:
+                "0 0 10px rgba(109, 40, 217, 0.45), inset 0 0 8px rgba(167, 139, 250, 0.12)",
+              pointerEvents: "none",
+              zIndex: 999999,
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* ── HOVER: inversion circle — grows over clickable elements ── */}
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            className="cursor-follower"
+            key="hover-invert"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ type: "spring", stiffness: 320, damping: 22 }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              x: springX,
+              y: springY,
+              marginLeft: -18,
+              marginTop: -18,
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              background: "#8800efff",
+              mixBlendMode: "difference",
+              pointerEvents: "none",
+              zIndex: 999999,
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* ── DOT: always visible, purple→blue gradient ── */}
       <motion.div
+        className="cursor-follower"
         style={{
           position: "fixed",
           top: 0,
           left: 0,
-          width: isHovered ? 12 : 8,
-          height: isHovered ? 12 : 8,
-          marginLeft: isHovered ? -6 : -4,
-          marginTop: isHovered ? -6 : -4,
-          borderRadius: "50%",
-          background: "linear-gradient(135deg, #6d28d9 0%, #3b82f6 100%)",
           x: cursorX,
           y: cursorY,
+          marginLeft: -3.5,
+          marginTop: -3.5,
+          width: 7,
+          height: 7,
+          borderRadius: "50%",
+          background: "linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%)",
+          boxShadow: "0 0 6px rgba(167, 139, 250, 0.8)",
           pointerEvents: "none",
           zIndex: 999999,
-          mixBlendMode: "difference",
-        }}
-        animate={{
-          scale: isHovered ? 1.5 : 1,
+          mixBlendMode: isHovered ? "difference" : "normal",
         }}
       />
     </>

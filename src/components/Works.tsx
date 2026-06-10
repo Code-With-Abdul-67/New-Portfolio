@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 interface Project {
@@ -34,7 +33,7 @@ const projects: Project[] = [
     category: "FULL STACK WITH AI INTEGRATION",
     description:
       "A full-stack note-taking app with AI-powered summarization via Gemini. Supports auth, rich text, and PostgreSQL persistence.",
-    tech: "NEXT.JS / POSTGRESQL / PRISMA / GEMINI AI ",
+    tech: "NEXT.JS / POSTGRESQL / PRISMA / GEMINI AI",
     live: "https://next-notes-sable.vercel.app/",
     github: "https://github.com/Code-With-Abdul-67/Next-Notes",
     image: "/projects/nextnotes.png",
@@ -85,11 +84,9 @@ export default function Works() {
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveIndex(i);
-          }
+          if (entry.isIntersecting) setActiveIndex(i);
         },
-        { threshold: 0.3, rootMargin: "0px 0px -20% 0px" },
+        { threshold: 0.4, rootMargin: "0px 0px -30% 0px" },
       );
       obs.observe(el);
       observers.push(obs);
@@ -176,7 +173,7 @@ export default function Works() {
         />
       </div>
 
-      {/* Two-column sticky layout */}
+      {/* Two-column layout — CSS sticky left panel */}
       <div
         className="works-layout"
         style={{
@@ -187,9 +184,10 @@ export default function Works() {
           gridTemplateColumns: "2fr 3fr",
           gap: "3rem",
           alignItems: "start",
+          position: "relative",
         }}
       >
-        {/* LEFT — Sticky info panel */}
+        {/* LEFT — CSS sticky info panel */}
         <div
           className="works-sticky-panel"
           style={{
@@ -365,7 +363,7 @@ export default function Works() {
                   gap: "1rem",
                 }}
               >
-                {/* Image or emoji placeholder */}
+                {/* Image */}
                 <div
                   style={{
                     width: "100%",
@@ -509,11 +507,6 @@ export default function Works() {
           }
           .mobile-project-details {
             display: block !important;
-          }
-        }
-        @media (max-width: 900px) {
-          .works-header {
-            padding: 0 1.25rem !important;
           }
         }
       `}</style>
