@@ -148,20 +148,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Subtitle */}
-            <p style={{
-              fontSize: "0.62rem",
-              color: "#5a5a5a",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              fontFamily: "var(--font-space-mono), monospace",
-              lineHeight: 1.8,
-              margin: 0,
-            }}>
-              PLATFORM SUPPORT SPECIALIST · FULL STACK DEVELOPER,<br />
-              AI-POWERED TOOLS &amp; MODERN WEB EXPERIENCES.
-            </p>
-
             {/* CTA buttons */}
             <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
               <a

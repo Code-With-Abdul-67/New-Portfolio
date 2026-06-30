@@ -43,7 +43,7 @@
   }
 }
 
-/* ── Preloader ───────────────────────────────── */
+/* ── Preloader ── */
 .preloader-spinner {
   display: inline-block;
   width: 10px;
@@ -74,7 +74,7 @@
   50% { opacity: 0; }
 }
 
-/* ── Scrollbar hidden, scroll container preserved ─ */
+/* ── Scrollbar hidden, scroll container preserved ── */
 * {
   scrollbar-width: none;
 }
@@ -82,7 +82,7 @@
   display: none;
 }
 
-/* ── Status dot pulse ───────────────────────── */
+/* ── Status dot pulse ── */
 .status-dot {
   width: 8px;
   height: 8px;
@@ -120,7 +120,7 @@
   }
 }
 
-/* ── Ticker animation ───────────────────────── */
+/* ── Ticker animation ──*/
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -169,7 +169,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── Global mobile responsive ────────────────── */
+/* ── Global mobile responsive ── */
 @media (max-width: 768px) {
   .section-inner {
     padding: 0 1rem !important;
@@ -229,7 +229,7 @@ html {
   color: transparent;
 }
 
-/* ── Glowing Gradient Text ─────────────────── */
+/* ── Glowing Gradient Text ── */
 .text-gradient {
   background: linear-gradient(110deg, #a78bfa 0%, #ffffff 18%, #a78bfa 36%, #60a5fa 68%, #a78bfa 100%);
   background-size: 300% auto;
@@ -246,7 +246,7 @@ html {
   }
 }
 
-/* ── Premium Neon Glass Buttons ──────────────── */
+/* ── Premium Neon Glass Buttons ── */
 .btn-sheen {
   position: relative;
   overflow: hidden;
@@ -293,7 +293,7 @@ html {
   transform: scale(0.97) !important;
 }
 
-/* ── Glass UI ───────────────────────────────── */
+/* ── Glass UI ── */
 .glass-panel {
   position: relative;
   background: rgba(12, 10, 18, 0.45) !important;
@@ -332,7 +332,7 @@ html {
   z-index: 1;
 }
 
-/* ── Glass Card (interactive variant) ───────── */
+/* ── Glass Card (interactive variant) ── */
 .glass-card {
   position: relative;
   background: rgba(10, 10, 18, 0.45);
@@ -372,7 +372,7 @@ html {
   z-index: 1;
 }
 
-/* ── Interactive Blur Blobs ─────────────────── */
+/* ── Interactive Blur Blobs ── */
 .blob {
   position: fixed;
   border-radius: 50%;

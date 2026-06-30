@@ -32,7 +32,6 @@ export default function Contact() {
 
     setStatus("sending");
 
-    // Opens the default email client with pre-filled content
     const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
@@ -111,7 +110,6 @@ export default function Contact() {
               opportunities. Let&apos;s talk.
             </p>
 
-            {/* Direct email link */}
             <motion.a
               href="mailto:codewithabdul67@gmail.com"
               className="glass-panel"

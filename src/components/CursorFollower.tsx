@@ -73,7 +73,6 @@ export default function CursorFollower() {
       });
       observer.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isDesktop !== true || !isVisible) return null;

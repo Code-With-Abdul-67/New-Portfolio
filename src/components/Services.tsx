@@ -68,7 +68,6 @@ export default function Services() {
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    // Close the expanded card first, then scroll after the collapse animation (450ms) settles
     setHoveredIndex(null);
     setTimeout(() => {
       const contact = document.querySelector("#contact") as HTMLElement | null;
