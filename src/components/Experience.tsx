@@ -139,7 +139,7 @@ export default function Experience() {
                 style={{
                   fontSize: "clamp(1.5rem, 3.5vw, 2.75rem)",
                   fontWeight: 900,
-                  color: "#ffc400",
+                  color: "#8241c7ff",
                   textTransform: "uppercase",
                   letterSpacing: "-0.02em",
                   lineHeight: 1,

@@ -161,7 +161,7 @@ export default function Capabilities() {
                   style={{
                     fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)",
                     fontWeight: 900,
-                    color: "#ffc400",
+                    color: "#d1d1d1ff",
                     textTransform: "uppercase",
                     lineHeight: 1.05,
                     letterSpacing: "-0.01em",
@@ -174,7 +174,7 @@ export default function Capabilities() {
                     style={{
                       fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)",
                       fontWeight: 900,
-                      color: "#ffc400",
+                      color: "#116ab8ff",
                       textTransform: "uppercase",
                       lineHeight: 1.05,
                       letterSpacing: "-0.01em",
