@@ -82,7 +82,7 @@ export default function Hero() {
                 fontFamily: "var(--font-space-mono), monospace",
                 textTransform: "uppercase",
               }}>
-                ABDUL BASEER / PLATFORM SUPPORT ENGINEER & FULLSTACK DEVELOPER
+                PLATFORM SUPPORT ENGINEER & FULLSTACK DEVELOPER
               </span>
               <span style={{
                 border: "1px solid rgba(255,255,255,0.08)",
