@@ -233,16 +233,16 @@ export default function Works() {
                     textTransform: "uppercase",
                   }}
                 >
-                  {active.category}
+                  {active.category}   
                 </span>
               </div>
 
               {/* Project name */}
               <h3
+                className="text-gradient"
                 style={{
                   fontSize: "clamp(2rem, 3.5vw, 3.25rem)",
                   fontWeight: 900,
-                  color: "#6d28d9",
                   textTransform: "uppercase",
                   lineHeight: 0.95,
                   letterSpacing: "-0.02em",
