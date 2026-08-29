@@ -24,17 +24,20 @@
   body {
     background:
       radial-gradient(circle at 50% 0%,
-        rgba(109, 40, 217, 0.12),
+        rgba(255, 255, 255, 0.04),
         transparent 50%),
       radial-gradient(circle at 0% 100%,
-        rgba(59, 130, 246, 0.1),
+        rgba(255, 255, 255, 0.02),
         transparent 50%),
       #030307;
     color: #ffffff;
-    font-family: var(--font-simonetta), "Simonetta", serif, var(--font-jakarta), Arial, Helvetica, sans-serif;
+    font-family: var(--font-jakarta), "Inter", Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
     overflow-x: clip;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .custom-cursor-active,
@@ -48,8 +51,8 @@
   display: inline-block;
   width: 10px;
   height: 10px;
-  border: 1.5px solid rgba(109, 40, 217, 0.3);
-  border-top-color: #a78bfa;
+  border: 1.5px solid rgba(0, 240, 255, 0.3);
+  border-top-color: #00F0FF;
   border-radius: 50%;
   animation: preloader-spin 0.7s linear infinite;
   vertical-align: middle;
@@ -63,7 +66,7 @@
   display: inline-block;
   width: 7px;
   height: 0.85em;
-  background: #a78bfa;
+  background: #00F0FF;
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: preloader-blink 0.8s step-end infinite;
@@ -87,7 +90,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #02bf47;
+  background: #00F0FF;
   display: inline-block;
   flex-shrink: 0;
   position: relative;
@@ -98,7 +101,7 @@
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background: #4ade80;
+  background: #00F0FF;
   opacity: 0.35;
   animation: pulse-ring 1.8s ease-out infinite;
 }
@@ -281,11 +284,11 @@ html {
 
 .btn-sheen:hover {
   background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(167, 139, 250, 0.5) !important;
-  /* Soft purple border */
+  border-color: rgba(0, 240, 255, 0.5) !important;
+  /* Soft blue border */
   color: #ffffff !important;
-  box-shadow: 0 0 20px 0 rgba(109, 40, 217, 0.3) !important;
-  /* Purple glow */
+  box-shadow: 0 0 20px 0 rgba(0, 240, 255, 0.3) !important;
+  /* Blue glow */
   transform: scale(1.03) !important;
 }
 
@@ -311,7 +314,7 @@ html {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(109, 40, 217, 0.22) 0%, rgba(15, 15, 28, 0.08) 50%, rgba(123, 52, 236, 0.12) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(15, 15, 28, 0.08) 50%, rgba(255, 255, 255, 0.02) 100%);
   opacity: 0;
   transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -323,8 +326,8 @@ html {
 }
 
 .glass-panel:hover {
-  border-color: rgba(137, 73, 240, 0.4) !important;
-  box-shadow: 0 16px 48px 0 rgba(109, 40, 217, 0.15) !important;
+  border-color: rgba(0, 240, 255, 0.4) !important;
+  box-shadow: 0 16px 48px 0 rgba(0, 240, 255, 0.15) !important;
 }
 
 .glass-panel > * {
@@ -351,7 +354,7 @@ html {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(109, 40, 217, 0.22) 0%, rgba(15, 15, 28, 0.08) 50%, rgba(123, 52, 236, 0.12) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(15, 15, 28, 0.08) 50%, rgba(255, 255, 255, 0.02) 100%);
   opacity: 0;
   transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -363,8 +366,8 @@ html {
 }
 
 .glass-card:hover {
-  border-color: rgba(137, 73, 240, 0.4);
-  box-shadow: 0 16px 48px 0 rgba(109, 40, 217, 0.15);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 16px 48px 0 rgba(0, 240, 255, 0.15);
 }
 
 .glass-card > * {
@@ -383,17 +386,17 @@ html {
 }
 
 .blob-purple {
-  background: radial-gradient(circle, #6d28d9 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
   animation: floatBlobPurple 25s infinite alternate ease-in-out;
 }
 
 .blob-blue {
-  background: radial-gradient(circle, #2563eb 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
   animation: floatBlobBlue 30s infinite alternate ease-in-out;
 }
 
 .blob-yellow {
-  background: radial-gradient(circle, #eab308 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
   animation: floatBlobYellow 28s infinite alternate ease-in-out;
 }
 

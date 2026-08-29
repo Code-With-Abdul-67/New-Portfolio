@@ -22,6 +22,7 @@ export default function CursorFollower() {
     const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     if (!mq.matches || isTouch) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsDesktop(false);
       return;
     }
@@ -42,12 +43,14 @@ export default function CursorFollower() {
     document.addEventListener("mouseleave", onMouseLeave);
     document.addEventListener("mouseenter", onMouseEnter);
 
+    const currentTracked = tracked.current;
+
     const addHover = () => setIsHovered(true);
     const removeHover = () => setIsHovered(false);
 
     const addListeners = (el: Element) => {
-      if (tracked.current.has(el)) return;
-      tracked.current.add(el);
+      if (currentTracked.has(el)) return;
+      currentTracked.add(el);
       el.addEventListener("mouseenter", addHover);
       el.addEventListener("mouseleave", removeHover);
     };
@@ -67,13 +70,13 @@ export default function CursorFollower() {
       window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
       document.removeEventListener("mouseenter", onMouseEnter);
-      tracked.current.forEach((el) => {
+      currentTracked.forEach((el) => {
         el.removeEventListener("mouseenter", addHover);
         el.removeEventListener("mouseleave", removeHover);
       });
       observer.disconnect();
     };
-  }, []);
+  }, [cursorX, cursorY]);
 
   if (isDesktop !== true || !isVisible) return null;
 

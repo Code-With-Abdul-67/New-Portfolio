@@ -98,7 +98,7 @@ export default function Capabilities() {
             style={{
               fontSize: "clamp(3rem, 7vw, 7rem)",
               fontWeight: 900,
-              color: "#6d28d9",
+              color: "#00F0FF",
               textTransform: "uppercase",
               lineHeight: 0.9,
               letterSpacing: "-0.02em",
@@ -152,7 +152,7 @@ export default function Capabilities() {
                   marginBottom: "1.25rem",
                 }}
               >
-                {cap.num} /// {cap.category}
+                {cap.num} {"///"} {cap.category}
               </p>
 
               {/* Title */}
@@ -174,7 +174,7 @@ export default function Capabilities() {
                     style={{
                       fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)",
                       fontWeight: 900,
-                      color: "#116ab8ff",
+                      color: "#00F0FF",
                       textTransform: "uppercase",
                       lineHeight: 1.05,
                       letterSpacing: "-0.01em",

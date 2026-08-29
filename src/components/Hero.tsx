@@ -110,10 +110,9 @@ export default function Hero() {
               }}>
                 ABDUL
               </h1>
-              <h1 className="hero-name-text" style={{
+              <h1 className="text-gradient" style={{
                 fontSize: "clamp(4.5rem, 8vw, 9rem)",
                 fontWeight: 900,
-                color: "#6d28d9",
                 textTransform: "uppercase",
                 letterSpacing: "-0.02em",
                 lineHeight: 0.88,

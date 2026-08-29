@@ -155,7 +155,7 @@ export default function Navbar() {
         }
         .nav-logo-bold {
           font-weight: 900;
-          color: #6d28d9;
+          color: #00F0FF;
           font-size: 0.88rem;
           letter-spacing: 0.06em;
           text-transform: uppercase;
@@ -183,7 +183,7 @@ export default function Navbar() {
           text-transform: uppercase;
           transition: color 0.2s;
         }
-        .nav-link:hover { color: #ffffff; }
+        .nav-link:hover { color: #00F0FF; }
 
         /* ─── Right section ─── */
         .nav-right {
@@ -318,7 +318,7 @@ export default function Navbar() {
         .btn-sheen:hover {
           background: rgba(255,255,255,0.06);
           border-color: rgba(255, 255, 255, 0.6) !important;
-          color: #8800f7ff !important;
+          color: #00F0FF !important;
         }
       `}</style>
     </>

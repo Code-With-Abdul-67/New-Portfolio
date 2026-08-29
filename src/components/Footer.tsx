@@ -17,47 +17,72 @@ export default function Footer() {
           maxWidth: "1280px",
           margin: "0 auto",
           padding: "5rem 2.5rem 3rem",
-          overflow: "hidden",
         }}
         className="footer-inner"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          aria-label="Abdul Baseer"
-        >
-          {/* ABDUL */}
-          <div style={{ lineHeight: 0.85, display: "flex", flexDirection: "column" }}>
-            <h1
-              className="text-gradient"
-              style={{
-                fontSize: "clamp(5rem, 13vw, 14rem)",
-                fontWeight: 900,
-                textTransform: "uppercase",
-                letterSpacing: "-0.03em",
-                margin: 0,
-              }}
-            >
-              ABDUL
-            </h1>
-            <h1
-              className="text-gradient"
-              style={{
-                fontSize: "clamp(5rem, 13vw, 14rem)",
-                fontWeight: 900,
-                color: "#6d28d9",
-                textTransform: "uppercase",
-                letterSpacing: "-0.03em",
-                margin: 0,
-                paddingLeft: "5%",
-              }}
-            >
-              BASEER
-            </h1>
-          </div>
-        </motion.div>
+        <div style={{ lineHeight: 0.85, display: "flex", flexDirection: "column" }}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08 } },
+            }}
+            style={{ display: "flex", overflow: "hidden" }}
+          >
+            {"ABDUL".split("").map((char, i) => (
+              <motion.h1
+                key={i}
+                className="text-gradient"
+                variants={{
+                  hidden: { opacity: 0, y: "100%" },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+                }}
+                style={{
+                  fontSize: "clamp(5rem, 13vw, 14rem)",
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.03em",
+                  margin: 0,
+                }}
+              >
+                {char}
+              </motion.h1>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
+            }}
+            style={{ display: "flex", overflow: "hidden", paddingLeft: "5%" }}
+          >
+            {"BASEER".split("").map((char, i) => (
+              <motion.h1
+                key={i}
+                className="text-gradient"
+                variants={{
+                  hidden: { opacity: 0, y: "100%" },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+                }}
+                style={{
+                  fontSize: "clamp(5rem, 13vw, 14rem)",
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.03em",
+                  margin: 0,
+                }}
+              >
+                {char}
+              </motion.h1>
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       {/* Bottom bar */}

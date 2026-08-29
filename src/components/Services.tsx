@@ -157,7 +157,7 @@ export default function Services() {
               style={{
                 fontSize: "clamp(3.5rem, 8vw, 8.5rem)",
                 fontWeight: 900,
-                color: "#6d28d9",
+                color: "#00F0FF",
                 textTransform: "uppercase",
                 lineHeight: 0.88,
                 letterSpacing: "-0.02em",

@@ -19,6 +19,7 @@ const TOTAL = STAGES.length * STAGE_DURATION;
 function useTypewriter(text: string, active: boolean, speed = 38) {
   const [out, setOut] = useState("");
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!active) { setOut(""); return; }
     setOut("");
     let i = 0;

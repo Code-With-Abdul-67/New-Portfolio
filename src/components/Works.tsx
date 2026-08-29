@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react"; import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 interface Project {
@@ -13,6 +13,8 @@ interface Project {
   github: string;
   image: string | null;
   emoji?: string;
+  challenge?: string;
+  outcome?: string;
 }
 
 const projects: Project[] = [
@@ -233,7 +235,7 @@ export default function Works() {
                     textTransform: "uppercase",
                   }}
                 >
-                  {active.category}   
+                  {active.category}
                 </span>
               </div>
 
@@ -255,15 +257,29 @@ export default function Works() {
               {/* Description */}
               <p
                 style={{
-                  fontSize: "0.85rem",
-                  color: "#9e9e9e",
+                  fontSize: "0.88rem",
+                  color: "#d4d4d4",
                   lineHeight: 1.75,
-                  marginBottom: "1.5rem",
+                  marginBottom: active.challenge ? "1rem" : "1.5rem",
                   maxWidth: "34ch",
                 }}
               >
                 {active.description}
               </p>
+
+              {active.challenge && (
+                <div style={{ marginBottom: "1rem" }}>
+                  <p style={{ fontSize: "0.55rem", color: "#00F0FF", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.3rem", fontWeight: 700 }}>THE CHALLENGE</p>
+                  <p style={{ fontSize: "0.8rem", color: "#9e9e9e", lineHeight: 1.6, maxWidth: "34ch" }}>{active.challenge}</p>
+                </div>
+              )}
+
+              {active.outcome && (
+                <div style={{ marginBottom: "1.5rem" }}>
+                  <p style={{ fontSize: "0.55rem", color: "#02bf47", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.3rem", fontWeight: 700 }}>THE OUTCOME</p>
+                  <p style={{ fontSize: "0.8rem", color: "#9e9e9e", lineHeight: 1.6, maxWidth: "34ch" }}>{active.outcome}</p>
+                </div>
+              )}
 
               {/* Tech stack */}
               <p
@@ -416,12 +432,12 @@ export default function Works() {
                           textTransform: "uppercase",
                         }}
                       >
-                        {project.num} //
+                        {project.num} {"//"}
                       </p>
                       <p
                         style={{
                           fontSize: "0.6rem",
-                          color: "#6d28d9",
+                          color: "#00F0FF",
                           fontFamily: "var(--font-space-mono), monospace",
                           letterSpacing: "0.1em",
                           textTransform: "uppercase",

@@ -56,6 +56,21 @@ export default function RootLayout({
           <div className="blob blob-blue" style={{ top: "40%", right: "-10%", width: "500px", height: "500px" }} />
           <div className="blob blob-yellow" style={{ top: "75%", left: "5%", width: "450px", height: "450px" }} />
           <div className="blob blob-purple" style={{ top: "90%", right: "5%", width: "550px", height: "550px" }} />
+          
+          {/* Noise Texture Overlay */}
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              pointerEvents: "none",
+              zIndex: 9999,
+              opacity: 0.035,
+              background: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            }}
+          />
           <Preloader />
           <GradientSync />
           <CursorFollower />

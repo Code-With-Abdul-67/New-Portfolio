@@ -131,7 +131,7 @@ export default function Experience() {
                     style={{ width: "6px", height: "6px" }}
                   />
                 )}
-                {entry.num} /// {entry.period}
+                {entry.num} {"///"} {entry.period}
               </p>
 
               {/* Role */}
@@ -139,7 +139,7 @@ export default function Experience() {
                 style={{
                   fontSize: "clamp(1.5rem, 3.5vw, 2.75rem)",
                   fontWeight: 900,
-                  color: "#8241c7ff",
+                  color: "#00F0FF",
                   textTransform: "uppercase",
                   letterSpacing: "-0.02em",
                   lineHeight: 1,
